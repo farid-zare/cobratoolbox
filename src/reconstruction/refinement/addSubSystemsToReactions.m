@@ -43,7 +43,7 @@ end
 
 if ~isfield(model,'subSystems')
     model.subSystems = cell(numel(model.rxns),1);
-    model.subSystems(:) = {{''}};
+    model.subSystems(:) = {''};
 end
 
 if ischar(subSystems)
@@ -55,11 +55,4 @@ subSystems = setdiff(subSystems,{''}); % We don't add an empty string to existin
 if isempty(subSystems)
     return
 end
-
-model.subSystems(reactions) = cellfun(@(x) addSubSystem(x,subSystems),model.subSystems(reactions),'UniformOutput',0);
-
-
-
-function newSubSystems = addSubSystem(subSystemVector,newSubSystems)
-subSystemVector = setdiff(subSystemVector,{''});
-newSubSystems = union(subSystemVector,newSubSystems);
+model.subSystems(reactions) = subSystems;
