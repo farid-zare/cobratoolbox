@@ -33,6 +33,9 @@ if isfield(model, 'subSystems')
     if isempty(subSystems)
         subSystems = {};
     end
+    % Remove any empty element from the subSystem list
+    emptyIndex = cellfun(@isempty, subSystems);
+    subSystems = subSystems(~emptyIndex);
 else
     subSystems = {};
 end
