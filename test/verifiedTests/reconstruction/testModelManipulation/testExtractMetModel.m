@@ -33,6 +33,8 @@ end
 %compare against explicitly loaded models to conserve the ids.
 load('testExtractMetModel.mat', 'emptyModel', 'atpModel', 'pppg9Level0', 'pppg9Level1');
 
+fprintf('   Running testExtractMetModel ... \n');
+
 % Test getting level 0 (just reactions that involve a metabolite)
 model2 = extractMetModel(model, 'pppg9', 0, 1);
 
@@ -59,6 +61,9 @@ atpModel.grRules=model2.grRules;
 atpModel.rules=model2.rules;
 [isSame, nDiff, commonFields] = isSameCobraModel(model2, atpModel, printLevel);
 assert(isSame);
+
+% output a success message 
+fprintf(' Done.\n\n');
 
 %return to original directory
 cd(currentDir)
