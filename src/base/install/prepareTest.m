@@ -100,6 +100,7 @@ parser.addParamValue('needsNLP', false, @(x) islogical(x) || x == 1 || x == 0);
 parser.addParamValue('needsQP', false, @(x) islogical(x) || x == 1 || x == 0);
 parser.addParamValue('needsMIQP', false, @(x) islogical(x) || x == 1 || x == 0);
 parser.addParamValue('needsEP', false, @(x) islogical(x) || x == 1 || x == 0);
+parser.addParamValue('needsCLP', false, @(x) islogical(x) || x == 1 || x == 0);
 parser.addParamValue('needsUnix', false, @(x) islogical(x) || x == 1 || x == 0);
 parser.addParamValue('needsLinux', false, @(x) islogical(x) || x == 1 || x == 0);
 parser.addParamValue('needsWindows', false, @(x) islogical(x) || x == 1 || x == 0);
@@ -116,6 +117,7 @@ useMIQP = parser.Results.needsMIQP;
 useNLP = parser.Results.needsNLP;
 useMILP = parser.Results.needsMILP;
 useEP = parser.Results.needsEP;
+useCLP = parser.Results.needsCLP;
 
 macOnly = parser.Results.needsMac;
 windowsOnly = parser.Results.needsWindows;
@@ -419,4 +421,3 @@ else
         end
     end
 end
-
