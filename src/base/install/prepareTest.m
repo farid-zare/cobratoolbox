@@ -363,6 +363,17 @@ else
     end
 end
 
+if isempty(solversForTest.CLP)
+    if useCLP
+        errorMessage{end + 1} = 'The test requires at least one CLP solver but no solver is installed';
+    end
+else
+    if ~isempty(solversForTest.CLP)
+        defaultCLPSolver = solversForTest.CLP{1};
+    else
+        defaultCLPSolver = '';
+    end
+end
 
 if ~isempty(errorMessage)
     errorString = strjoin(errorMessage, '\n');
