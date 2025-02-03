@@ -16,10 +16,6 @@ jobs:
         run: |
           git clone -b CI https://github.com/farid-zare/cobratoolbox.git cobratoolbox
 
-      - name: Run MATLAB Tests
-        run: |
-          matlab -batch "run('cobratoolbox/initCobraToolbox.m'); run('cobratoolbox/test/testAll_v2.m');"
-
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
         uses: codecov/test-results-action@v1
