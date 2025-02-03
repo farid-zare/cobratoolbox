@@ -1,0 +1,29 @@
+name: MATLAB Tests and Code Coverage
+
+on:
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout PR Code
+        uses: actions/checkout@v4
+
+      - name: Clone COBRA Toolbox
+        run: |
+          git clone -b CI https://github.com/farid-zare/cobratoolbox.git cobratoolbox
+
+      - name: Run MATLAB Tests
+        run: |
+          matlab -batch "run('cobratoolbox/initCobraToolbox.m'); run('cobratoolbox/test/testAll_v2.m');
+
+      - name: Upload test results to Codecov
+        if: ${{ !cancelled() }}
+        uses: codecov/test-results-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: cobratoolbox/CodeCovTestResults.xml
+
