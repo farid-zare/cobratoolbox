@@ -18,7 +18,7 @@ jobs:
 
       - name: Run MATLAB Tests
         run: |
-          matlab -batch "run('cobratoolbox/initCobraToolbox.m'); run('cobratoolbox/test/testAll_v2.m');
+          matlab -batch "run('cobratoolbox/initCobraToolbox.m'); run('cobratoolbox/test/testAll_v2.m');"
 
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
