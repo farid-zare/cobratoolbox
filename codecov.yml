@@ -2,19 +2,24 @@
 
 # Comment settings
 comment:
-  layout: "reach, diff, flags, files"
-  behavior: default  # Shows the comment only on the first push of a pull request
-  require_changes: true  # Only comment if there are coverage changes
+  layout: "reach, diff, flags, files, test_analytics"  # Include test analytics
+  behavior: default  # Shows the comment on the first push of a PR
+  require_changes: false  # Post a comment even if no coverage changes
+  require_head: no     # default yes
+  require_base: no     # default yes
 
-# Coverage status checks
+# Test Analytics (Enable it explicitly)
+test:
+  analytics: true  # Ensure Codecov processes test results
+
+# Coverage status checks (keep if needed, but test analytics works independently)
 coverage:
   status:
     project:
       default:
-        target: auto  # Automatically adjust coverage goal
+        target: auto
         threshold: 1%  # Fail PRs that reduce coverage by more than 1%
     patch:
       default:
         target: auto
         threshold: 1%
-
