@@ -22,4 +22,7 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: cobratoolbox/test/CodeCovTestResults.xml
+              
+      - name: Debug GitHub Actions Secrets
+        run: env | sort
 
