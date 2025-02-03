@@ -1,0 +1,19 @@
+# Ensure Codecov recognizes test analytics
+test:
+  analytics: true  # Explicitly enable test analytics
+
+# Comment settings
+comment:
+  layout: "test_analytics"  # Only show test analytics
+  behavior: once  # Ensure the comment is posted once per PR
+  require_changes: false  # Post a comment even if no coverage changes
+
+# Ignore coverage since you're only uploading test results
+coverage:
+  status:
+    project:
+      default:
+        enabled: no  # Disable coverage reports if not used
+    patch:
+      default:
+        enabled: no
