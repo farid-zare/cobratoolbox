@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="COBRA Toolbox Test Suites" tests="5" failures="0" errors="0" time="21.620">
-  <testsuite name="COBRA Toolbox Test Suite" tests="5" failures="0" errors="0" skipped="1" time="21.620">
-    <testcase classname="COBRA Toolbox" name="testBiomassPrecursorCheck.m" time="17.876"/>
-    <testcase classname="COBRA Toolbox" name="testCalculateFluxShifts.m" time="2.664"/>
-    <testcase classname="COBRA Toolbox" name="testCalculatePercentile.m" time="0.366"/>
-    <testcase classname="COBRA Toolbox" name="testGeneExpressionComparison.m" time="0.569"/>
-    <testcase classname="COBRA Toolbox" name="testConnectedComponents.m" time="0.145">
+<testsuites name="COBRA Toolbox Test Suites" tests="5" failures="1" errors="1" time="1.630">
+  <testsuite name="COBRA Toolbox Test Suite" tests="5" failures="1" errors="1" skipped="1" time="1.630">
+    <testcase classname="COBRA Toolbox" name="testBiomassPrecursorCheck.m" time="0.659">
+      <error message="Undefined function &apos;glpkcc&apos; for input arguments of type &apos;struct&apos;."/>
+    </testcase>
+    <testcase classname="COBRA Toolbox" name="testCalculateFluxShifts.m" time="0.239"/>
+    <testcase classname="COBRA Toolbox" name="testCalculatePercentile.m" time="0.591"/>
+    <testcase classname="COBRA Toolbox" name="testGeneExpressionComparison.m" time="0.066"/>
+    <testcase classname="COBRA Toolbox" name="testConnectedComponents.m" time="0.075">
       <skipped message="The test requires the following Toolboxes to be installed: image_toolbox
 "/>
     </testcase>

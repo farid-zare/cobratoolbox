@@ -61,6 +61,8 @@ addpath(originalUserPath);
 
 if sum(resultTable.Failed) > 0
     exit_code = 1;
+else
+    exit_code = 0;
 end
 
 fprintf(['\n > The exit code is ', num2str(exit_code), '.\n\n']);
