@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="COBRA Toolbox Test Suites" tests="5" failures="0" errors="0" time="15.456">
-  <testsuite name="COBRA Toolbox Test Suite" tests="5" failures="0" errors="0" skipped="1" time="15.456">
-    <testcase classname="COBRA Toolbox" name="testBiomassPrecursorCheck.m" time="12.529"/>
-    <testcase classname="COBRA Toolbox" name="testCalculateFluxShifts.m" time="1.946"/>
-    <testcase classname="COBRA Toolbox" name="testCalculatePercentile.m" time="0.367"/>
-    <testcase classname="COBRA Toolbox" name="testGeneExpressionComparison.m" time="0.546"/>
-    <testcase classname="COBRA Toolbox" name="testConnectedComponents.m" time="0.068">
+<testsuites name="COBRA Toolbox Test Suites" tests="5" failures="0" errors="0" time="21.620">
+  <testsuite name="COBRA Toolbox Test Suite" tests="5" failures="0" errors="0" skipped="1" time="21.620">
+    <testcase classname="COBRA Toolbox" name="testBiomassPrecursorCheck.m" time="17.876"/>
+    <testcase classname="COBRA Toolbox" name="testCalculateFluxShifts.m" time="2.664"/>
+    <testcase classname="COBRA Toolbox" name="testCalculatePercentile.m" time="0.366"/>
+    <testcase classname="COBRA Toolbox" name="testGeneExpressionComparison.m" time="0.569"/>
+    <testcase classname="COBRA Toolbox" name="testConnectedComponents.m" time="0.145">
       <skipped message="The test requires the following Toolboxes to be installed: image_toolbox
 "/>
     </testcase>

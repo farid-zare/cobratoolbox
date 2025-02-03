@@ -1,3 +1,4 @@
+originalUserPath = path; 
 
 [result, resultTable] = runTestSuite();
 
