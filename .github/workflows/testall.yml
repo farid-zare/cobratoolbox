@@ -1,4 +1,4 @@
-name: MATLAB Tests
+name: MATLAB Tests and Code Coverage
 
 on:
   pull_request:
@@ -9,26 +9,26 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
-    
-    - name: Checkout PR Code
-      uses: actions/checkout@v4
+      - name: Checkout PR Code
+        uses: actions/checkout@v4
 
-    - name: Merge PR with Develop
-      run: |
-        git fetch origin develop
-        git checkout -b test-branch
-        git merge origin/develop --no-edit
+      - name: Clone COBRA Toolbox
+        run: |
+          git clone -b develop https://github.com/opencobra/cobratoolbox.git cobratoolbox
 
-    - name: Clone COBRA Toolbox
-      run: |
-        git clone https://github.com/opencobra/cobratoolbox.git cobratoolbox
+      - name: Run MATLAB Tests
+        run: |
+          matlab -batch "run('cobratoolbox/initCobraToolbox.m'); diary('cobratoolbox/test_results.txt'); run('cobratoolbox/test/testAll.m'); diary off;"
 
-    - name: Run MATLAB Tests
-      run: |
-        matlab -batch "run('cobratoolbox/initCobraToolbox.m'); diary('test_results.txt'); run('cobratoolbox/runTestsAndGenerateReport.m'); diary off;"
+      - name: Upload Test Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report
+          path: cobratoolbox/test_results.txt  # Correct path
 
-    - name: Upload Test Report
-      uses: actions/upload-artifact@v4
-      with:
-        name: test-report
-        path: test_results.txt
+      - name: Upload Coverage to Codecov
+        if: always()
+        uses: codecov/codecov-action@v3
+        with:
+          files: cobratoolbox/CodeCovTestResults.xml  # Correct path
+         
