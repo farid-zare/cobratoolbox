@@ -22,7 +22,6 @@ function model = changeRxnBounds(model, rxnNameList, value, boundType)
 %
 % .. Author: -  Markus Herrgard 4/21/06
 
-
 if (nargin < 4)
     boundType = 'b';
 end
