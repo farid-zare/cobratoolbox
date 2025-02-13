@@ -1,5 +1,4 @@
 name: testReport (Comment on PR)
-
 on:
   workflow_run:
     workflows: ['cobratoolboxCI (merge, test, and upload)']
