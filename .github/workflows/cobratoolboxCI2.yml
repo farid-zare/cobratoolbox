@@ -1,10 +1,10 @@
-name: cobratoolboxCI2
+name: testReport (Comment on PR)
 
 on:
   workflow_run:
-    workflows: ['cobratoolboxCI']
+    workflows: ['testReport (Test Merge)']
     types: [completed]
-    
+
 permissions:
   contents: write
   pull-requests: write
@@ -38,13 +38,17 @@ jobs:
       - name: Publish Test Report
         uses: ctrf-io/github-test-reporter@v1.0.5
         with:
-          report-path: 'artifacts/ctrf-report.json'
+          report-path: 'artifacts/ctrf-report.json'          
+          community-report: true
           community-report-name: 'summary-short'
-          test-report: false
-          test-list-report: false
-          flaky-report: false
-          skipped-report: false
           issue: ${{ env.PR_NUMBER }}
-
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish Test Report
+        uses: ctrf-io/github-test-reporter@v1.0.5
+        with:
+          report-path: 'artifacts/ctrf-report.json'          
+          failed-report: true
+          issue: ${{ env.PR_NUMBER }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
