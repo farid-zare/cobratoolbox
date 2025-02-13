@@ -1,35 +1,28 @@
-name: Example
+name: cobratoolboxCI (merge, test, and upload)
 on:
-  pull_request_target:
-    branches:
-      - master
-      - main
-      - develop
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
-      # Check out the PR’s head commit from the fork.
-      - name: Checkout PR head code
+      - name: Check out merged PR code
         uses: actions/checkout@v4
+
+      - name: Save PR Number
+        run: echo "PR_NUMBER=${{ github.event.pull_request.number }}" >> $GITHUB_ENV
+
+      - name: Upload PR Number as Artifact
+        run: echo $PR_NUMBER > pr_number.txt
+        shell: bash
+
+      - name: Upload PR Number Artifact
+        uses: actions/upload-artifact@v4
         with:
-          # Use the head repository and branch from the pull request event payload.
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-          ref: ${{ github.event.pull_request.head.ref }}
-          fetch-depth: 0
-
-      # Merge in the base branch (the target branch) to simulate a merged state.
-      - name: Merge base branch into PR
-        run: |
-          git fetch origin ${{ github.event.pull_request.base.ref }}
-          git merge origin/${{ github.event.pull_request.base.ref }}
-
-      - name: Run MATLAB Tests
-        run: |
-          matlab -batch "run('initCobraToolbox.m'); run('test/testAll.m');"
-
-      - name: Upload test results to Codecov
-        uses: codecov/test-results-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          file: testReport.junit.xml  
+          name: pr_number
+          path: pr_number.txt
