@@ -1,4 +1,4 @@
-name: cobratoolboxCI (merge, test, and upload)
+name: cobratoolboxCI
 on:
   pull_request:
     types: [opened, synchronize, reopened]
