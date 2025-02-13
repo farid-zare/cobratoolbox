@@ -22,7 +22,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: testReport
-          path: ./ctrf/ctrf-report.jso
+          path: ./ctrf/ctrf-report.json
           
       - name: Save PR Number
         run: echo "PR_NUMBER=${{ github.event.pull_request.number }}" >> $GITHUB_ENV
