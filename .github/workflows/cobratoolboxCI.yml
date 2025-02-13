@@ -13,7 +13,17 @@ jobs:
     steps:
       - name: Check out merged PR code
         uses: actions/checkout@v4
+        
+      - name: Convert JUnit to CTRF
+        run: |
+          npx junit-to-ctrf ./test.junit.xml -o ./ctrf/ctrf-report.json
 
+      - name: Upload CTRF Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: testReport
+          path: ./ctrf/ctrf-report.jso
+          
       - name: Save PR Number
         run: echo "PR_NUMBER=${{ github.event.pull_request.number }}" >> $GITHUB_ENV
 
