@@ -1,12 +1,10 @@
 name: testReport (Comment on PR)
+
 on:
-  #workflow_run:
-   # workflows: ['cobratoolboxCI (merge, test, and upload)']
-    #types: [completed]
-  pull_request:
-    types: [opened, synchronize, reopened]
-  workflow_dispatch:
-  
+  workflow_run:
+    workflows: ['cobratoolboxCI (merge, test, and upload)']
+    types: [completed]
+    
 permissions:
   contents: write
   pull-requests: write
