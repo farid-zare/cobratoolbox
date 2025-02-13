@@ -1,29 +1,28 @@
-name: Example
+name: cobratoolboxCI (merge, test, and upload)
 on:
   pull_request:
-    branches:
-      - master
-      - main
-      - develop
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out merged PR code
+        uses: actions/checkout@v4
+
+      - name: Save PR Number
+        run: echo "PR_NUMBER=${{ github.event.pull_request.number }}" >> $GITHUB_ENV
+
+      - name: Upload PR Number as Artifact
+        run: echo $PR_NUMBER > pr_number.txt
+        shell: bash
+
+      - name: Upload PR Number Artifact
+        uses: actions/upload-artifact@v4
         with:
-          fetch-depth: 0
-
-      - name: Merge base branch into PR
-        run: |
-          git fetch origin ${{ github.base_ref }}
-          git merge origin/${{ github.base_ref }}
-
-      - name: Run MATLAB Tests
-        run: |
-          matlab -batch "run('initCobraToolbox.m'); run('test/testAll.m');"
-
-      - name: Upload test results to Codecov
-        uses: codecov/test-results-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          file: testReport.junit.xml  
+          name: pr_number
+          path: pr_number.txt
