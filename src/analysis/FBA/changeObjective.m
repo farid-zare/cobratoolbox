@@ -17,6 +17,7 @@ function model = changeObjective(model, rxns, objectiveCoeff)
 %
 % .. Author: - Monica Mo & Markus Herrgard - 8/21/06
 
+
 if (nargin < 3)
     objectiveCoeff = 1;
 end
