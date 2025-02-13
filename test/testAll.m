@@ -219,7 +219,7 @@ try
             end
 
             % Start the <testcase> tag
-            fprintf(fid, '    <testcase classname="COBRA Toolbox" name="%s" time="%.3f"', testName, tVal);
+            fprintf(fid, '    <testcase name="%s" time="%.3f"', testName, tVal);
 
             if resultTable.Passed(i)
                 % Passed => just close
