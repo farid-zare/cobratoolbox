@@ -38,13 +38,9 @@ jobs:
       - name: Publish Test Report
         uses: ctrf-io/github-test-reporter@v1.0.5
         with:
-          report-path: 'artifacts/ctrf-report.json'
-          community-report-name: 'summary-short'
-          test-report: false
-          test-list-report: false
-          flaky-report: false
-          skipped-report: false
+          report-path: 'artifacts/ctrf-report.json'          
+          summary-report: true
+          failed-report: true
           issue: ${{ env.PR_NUMBER }}
-
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
