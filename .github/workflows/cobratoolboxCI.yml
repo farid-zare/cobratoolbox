@@ -13,10 +13,14 @@ jobs:
     steps:
       - name: Check out merged PR code
         uses: actions/checkout@v4
-        
+
+      - name: Run MATLAB Tests
+        run: |
+          matlab -batch "run('initCobraToolbox.m'); run('test/testAll.m');"
+
       - name: Convert JUnit to CTRF
         run: |
-          npx junit-to-ctrf ./test.junit.xml -o ./ctrf/ctrf-report.json
+          npx junit-to-ctrf ./testReport.junit.xml -o ./ctrf/ctrf-report.json
 
       - name: Upload CTRF Artifact
         uses: actions/upload-artifact@v4
