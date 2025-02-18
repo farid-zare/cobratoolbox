@@ -109,6 +109,7 @@ diary off
 assert(isempty(coupledMets))
 
 % no missingMets when checkConservedQuantities turned on
+missingMets = {'test'}
 assert(isempty(missingMets))
 % same set of presentMets
 assert(isempty(setxor(presentMets, presentMets0)))
