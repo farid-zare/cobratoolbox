@@ -230,7 +230,8 @@ end
 %Now we actually change the solver, so we will set the solverInstalled to
 %false (and reset it later)
 solverInstalled = false;
-
+SOLVERS
+OPT_PROB_TYPES
 if isempty(SOLVERS) || isempty(OPT_PROB_TYPES)
     ENV_VARS.printLevel = false;
     initCobraToolbox(false); %Don't update the toolbox automatically
