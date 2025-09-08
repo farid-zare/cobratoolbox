@@ -1,6 +1,6 @@
-from cobra.io.dict import model_to_dict
-from cobra.util.array import create_stoichiometric_matrix
 import numpy as np
+from cobra.util.array import create_stoichiometric_matrix
+import matlab
 
 def cobra_model_to_matlab_dict(model):
     """
@@ -17,32 +17,34 @@ def cobra_model_to_matlab_dict(model):
     ValueError
         If the stoichiometric matrix cannot be generated.
     """
-    model_dict = model_to_dict(model, sort=False)
+    
+    model_dict = {
+        "id": str(model.id or ""),
+        "name": str(model.name or "unnamed_model"),
+        # leave as plain Python lists of strings
+        "metabolites": [m.id for m in model.metabolites],
+        "reactions":   [r.id for r in model.reactions],
+        "genes":       [g.id for g in model.genes],
+    }
 
-    # Try to get stoichiometric matrix
-    try:
-        S = create_stoichiometric_matrix(model)
-    except Exception as e:
-        raise ValueError(
-            "Model is not COBRA Toolbox compatible: could not generate S matrix."
-        ) from e
-
-    # Detect type and store accordingly
+    # Stoichiometric matrix
+    S = create_stoichiometric_matrix(model)
     if isinstance(S, np.ndarray):
-        model_dict["S"] = S.tolist()
+        model_dict["S"] = matlab.double(S.tolist())  # proper numeric matrix
     else:
-        try:
-            S = S.tocoo()
-            model_dict["S"] = {
-                "row": S.row.tolist(),    # 0-based indices
-                "col": S.col.tolist(),
-                "data": S.data.tolist(),
-                "shape": S.shape,
-            }
-        except Exception as e:
-            raise ValueError(
-                "Model S matrix is neither numpy.ndarray nor scipy.sparse. "
-                "Cannot export to MATLAB-compatible format."
-            ) from e
+        S = S.tocoo()
+        model_dict["S"] = {
+            "row": S.row.tolist(),
+            "col": S.col.tolist(),
+            "data": S.data.tolist(),
+            "shape": S.shape,
+        }
 
     return model_dict
+
+
+
+
+
+
+    
