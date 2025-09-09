@@ -129,10 +129,8 @@ fieldsToBuild=[basicFieldsToBuild, rowFieldsToBuild, columnFieldsToBuild];
 if ~isempty(fieldsToBuild)
     if isdeployed 
         model = createEmptyFieldsEmbedded(model, fieldsToBuild); % This activate in the compiled version
-        fprintf("compiled MATLAB\n")
     else
-        model = createEmptyFields(model,fieldsToBuild); % This activat during a MATLAB active session
-        fprintf("MATLAB session\n")
+        model = createEmptyFields(model,fieldsToBuild); % This activates during a MATLAB active session
     end
 end
 
