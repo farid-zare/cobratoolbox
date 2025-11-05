@@ -41,34 +41,12 @@ jobs:
         run: |
           make html
 
-      - name: Copy the citations html page
-        run: |
-          cp ./documentation/build/html/citations.html ./documentation/source/Citations/citations.html
-
-      - name: Deploy the function modules
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: ./documentation/build/html/modules
-          branch: gh-pages
-          target-folder: stable/modules
-          commit-message: "update Function Docs (Automatic Workflow)"
-
-      - name: Deploy the citations page
+      - name: Deploy full documentation site
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./documentation/source/Citations
+          publish_dir: ./documentation/build/html
           publish_branch: gh-pages
-          keep_files: true
           destination_dir: stable
-          commit_message: "update Function Docs (Automatic Workflow)"
-
-      - name: Deploy the citations static page
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./documentation/build/html/_static
-          publish_branch: gh-pages
-          keep_files: true
-          destination_dir: stable/_static
+          keep_files: false
           commit_message: "update Function Docs (Automatic Workflow)"
