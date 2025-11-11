@@ -40,7 +40,7 @@ Solver installation
 Test the installation
 ---------------------
 
-You may test your installation by running from |matlab|
+You may test your installation by running from MATLAB |matlab|
 
 .. code-block:: matlab
 
@@ -73,7 +73,7 @@ If you need support, please feel free to post your question in our |ImageLink|_.
 
 .. |matlab| raw:: html
 
-   <img src="/cobratoolbox/stable/_static/img/matlab.png" height="20px" width="20px" alt="matlab">
+   <img src="./img/matlab.png" height="20px" width="20px" alt="matlab">
 
 
 .. |tada| raw:: html
