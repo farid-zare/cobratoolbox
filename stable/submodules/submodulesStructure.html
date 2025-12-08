@@ -340,8 +340,115 @@
 <li><p>After your contribution is merged, maintainers will update the submodule pointer in the main toolbox.</p></li>
 </ul>
 </section>
+</section>
+<section id="contribute-a-tutorial-of-your-work-to-the-cobra-tutorials">
+<h1>Contribute a tutorial of your work to the <a class="reference external" href="https://github.com/opencobra/COBRA.tutorials">COBRA Tutorials</a>.<a class="headerlink" href="#contribute-a-tutorial-of-your-work-to-the-cobra-tutorials" title="Permalink to this heading">¶</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>The COBRA.tutorials repository exists to collect and maintain tutorials for developed and published constraint-based genome-scale modelling methods and studies. Its purpose is to provide clear, reproducible instructional material that demonstrates how new algorithms, workflows, and analysis techniques can be applied within the COBRA modelling framework. By centralising these tutorials, the repository supports both new and experienced users in learning, comparing, and adopting state-of-the-art constraint-based modelling approaches.</p>
+</section>
+<section id="repository-structure">
+<h2>Repository structure<a class="headerlink" href="#repository-structure" title="Permalink to this heading">¶</a></h2>
+<p>Tutorials are here to get you started with using <a class="reference external" href="https://opencobra.github.io/cobratoolbox">The COBRA
+Toolbox</a>. The
+tutorials are grouped according to the <code class="docutils literal notranslate"><span class="pre">src/</span></code> folder structure:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/opencobra/COBRA.tutorials/tree/master/analysis">analysis</a></p></li>
+<li><p><a class="reference external" href="https://github.com/opencobra/COBRA.tutorials/tree/master/base">base</a></p></li>
+<li><p><a class="reference external" href="https://github.com/opencobra/COBRA.tutorials/tree/master/dataIntegration">dataIntegration</a></p></li>
+<li><p><a class="reference external" href="https://github.com/opencobra/COBRA.tutorials/tree/master/design">design</a></p></li>
+<li><p><a class="reference external" href="https://github.com/opencobra/COBRA.tutorials/tree/master/reconstruction">reconstruction</a></p></li>
+<li><p><a class="reference external" href="https://github.com/opencobra/COBRA.tutorials/tree/master/visualization">visualization</a></p></li>
+</ul>
+<p>All tutorials are provided in these formats: <code class="docutils literal notranslate"><span class="pre">.mlx</span></code>, <code class="docutils literal notranslate"><span class="pre">.m</span></code>, and <code class="docutils literal notranslate"><span class="pre">.html</span></code>.</p>
+<ul class="simple">
+<li><p>The interactive version <code class="docutils literal notranslate"><span class="pre">.mlx</span></code> is a MATLAB Live Script format and can be run using <a class="reference external" href="https://nl.mathworks.com/help/matlab/matlab_prog/what-is-a-live-script.html">the MATLAB Live-script editor</a>.</p></li>
+<li><p>The static version <code class="docutils literal notranslate"><span class="pre">.html</span></code> is automatically generated and is accessible on the <a class="reference external" href="https://opencobra.github.io/COBRA.tutorials">tutorial section of the COBRA Toolbox documentation</a>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">.pdf</span></code> version can be downloaded from the same tutorial section. The <code class="docutils literal notranslate"><span class="pre">.m</span></code> version can be opened and run directly in MATLAB, which is particularly useful for building new analysis scripts based on existing tutorials.</p></li>
+</ul>
+</section>
+<section id="how-the-continuous-integration-ci-system-works">
+<h2>How the Continuous Integration (CI) System Works<a class="headerlink" href="#how-the-continuous-integration-ci-system-works" title="Permalink to this heading">¶</a></h2>
+<p>The COBRA.tutorials repository uses an automated <strong>continuous integration (CI)</strong> workflow.
+When a contributor pushes a new or updated <code class="docutils literal notranslate"><span class="pre">.mlx</span></code> tutorial to the repository:</p>
+<ol class="arabic simple">
+<li><p>The CI pipeline is automatically triggered.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">.mlx</span></code> file is converted into three formats:
+- <code class="docutils literal notranslate"><span class="pre">.m</span></code> (MATLAB script)
+- <code class="docutils literal notranslate"><span class="pre">.pdf</span></code> (print-ready copy)
+- <code class="docutils literal notranslate"><span class="pre">.html</span></code> (web-friendly version)</p></li>
+<li><p>These generated files are published to the COBRA Toolbox website, making the tutorial immediately accessible to users.</p></li>
+</ol>
+<p>The diagram below illustrates this workflow:</p>
+<div style="text-align: center; width: 100%; margin-top: 10px; margin-bottom: 20px;">
+  <img src="/cobratoolbox/stable/_static/img/COBRA_Tutorials_CI_Workflow.png"
+       alt="COBRA Tutorials CI Workflow"
+       style="display: block; margin-left: auto; margin-right: auto; width: 80%; max-width: 900px;">
+</div><p>A template for generating a new tutorial is provided <a class="reference external" href="https://github.com/opencobra/COBRA.tutorials/tree/master/.template/tutorial_template.mlx">here</a>.</p>
+</section>
+<section id="contribute-a-new-tutorial-or-modify-an-existing-tutorial">
+<h2>Contribute a new tutorial or modify an existing tutorial<a class="headerlink" href="#contribute-a-new-tutorial-or-modify-an-existing-tutorial" title="Permalink to this heading">¶</a></h2>
+<section id="fork-and-checkout-your-branch">
+<h3>Fork and checkout your branch<a class="headerlink" href="#fork-and-checkout-your-branch" title="Permalink to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>Fork the <a class="reference external" href="https://www.github.com/opencobra/COBRA.tutorials">COBRA.tutorials repository</a> on Github.</p></li>
+<li><p>Clone the forked repository to a directory of your choice:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone git@github.com:&lt;userName&gt;/COBRA.tutorials.git fork-COBRA.tutorials.git</span>
+</pre></div>
+</div>
+</li>
+<li><p>Change to the directory:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd fork-COBRA.tutorials.git/</span>
+</pre></div>
+</div>
+</li>
+<li><p>Set the upstream to the <code class="docutils literal notranslate"><span class="pre">opencobra/COBRA.tutorials</span></code> repository:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git remote add upstream git@github.com:opencobra/COBRA.tutorials.git</span>
+</pre></div>
+</div>
+</li>
+<li><p>Fetch from the upstream repository:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git fetch upstream</span>
+</pre></div>
+</div>
+</li>
+<li><p>Checkout a new branch from <code class="docutils literal notranslate"><span class="pre">upstream/master</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git checkout -b master upstream/master</span>
+</pre></div>
+</div>
+</li>
+<li><p>Now, make your changes to the tutorial in MATLAB.</p></li>
+</ol>
+</section>
+<section id="submit-your-changes-and-open-a-pull-request-to-the-master-branch">
+<h3>Submit your changes and open a pull request to the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch<a class="headerlink" href="#submit-your-changes-and-open-a-pull-request-to-the-master-branch" title="Permalink to this heading">¶</a></h3>
+<ol class="arabic" start="8">
+<li><p>Once you are done making changes, add the files to your branch (<code class="docutils literal notranslate"><span class="pre">tutorial_&lt;yourFile&gt;</span></code> refers to the tutorial name). Make sure to add the <code class="docutils literal notranslate"><span class="pre">.mlx</span></code> format of the tutorial.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git add tutorial_&lt;yourFile&gt;.mlx</span>
+<span class="go">git commit -m &quot;Changes to tutorial_&lt;yourFile&gt;&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Push your commits on <code class="docutils literal notranslate"><span class="pre">&lt;yourBranch&gt;</span></code> to your fork:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git push origin &lt;yourBranch&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Browse to your fork on:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">https://www.github.com/&lt;yourUserName&gt;/COBRA.tutorials</span></code></p></li>
+</ul>
+</li>
+<li><p>Click on <strong>Compare &amp; Pull Request</strong>.</p></li>
+<li><p>Confirm the target branch is <code class="docutils literal notranslate"><span class="pre">master</span></code>.</p></li>
+<li><p>Submit your pull request.</p></li>
+<li><p>Wait until your pull request is accepted.</p></li>
+</ol>
+</section>
+</section>
+</section>
 <section id="key-reminders">
-<h2>Key reminders<a class="headerlink" href="#key-reminders" title="Permalink to this heading">¶</a></h2>
+<h1>Key reminders<a class="headerlink" href="#key-reminders" title="Permalink to this heading">¶</a></h1>
 <ul class="simple">
 <li><p>The main toolbox lives at <a class="reference external" href="https://github.com/opencobra/cobratoolbox">opencobra/cobratoolbox</a>.</p></li>
 <li><p>All binaries, models, tutorials and paper specific content must be added to their dedicated repositories.</p></li>
@@ -349,7 +456,6 @@
 <li><p>Using the correct repository keeps the ecosystem clean, modular and maintainable.</p></li>
 </ul>
 <p>Following these guidelines ensures your work is properly integrated and supports the COBRA community effectively.</p>
-</section>
 </section>
 
 
