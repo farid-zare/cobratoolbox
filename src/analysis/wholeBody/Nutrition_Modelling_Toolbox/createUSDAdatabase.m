@@ -197,7 +197,7 @@ foodMacroUsda = foodMacroUsda(:,[1 end 2:end-1]);
 %% Step 3 - Convert metabolite weights from g/mg/ug to mmol
 
 % Obtain the units of each measured metabolite
-unitMetabolite = nutrientVmhTable.unit_usda(idx1Met);
+unitMetabolite = metVmhTable.unit_usda(idx1Met);
 
 % Convert units to values for conversions factors to grams
 unitMetabolite = strrep(unitMetabolite, 'UG', '1e6');
