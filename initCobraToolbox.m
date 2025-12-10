@@ -684,7 +684,9 @@ method = 'remove';
 editCobraToolboxPath(basePath,folderPattern,method)
 
 if exist([CBTDIR filesep 'binary' filesep 'glnxa64' filesep 'lib_old'],'dir')
+    warning('off', 'MATLAB:rmpath:DirNotFound');
     rmpath([CBTDIR filesep 'binary' filesep 'glnxa64' filesep 'lib_old']);
+    warning('on', 'MATLAB:rmpath:DirNotFound');
 end
 
 % change back to the current directory

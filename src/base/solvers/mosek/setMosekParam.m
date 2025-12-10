@@ -69,7 +69,7 @@ if ~isfield(param, 'MSK_IPAR_LOG')
         otherwise
             echolev = 0;
     end
-    if echolev == 0 && ~param.debug
+    if echolev == 0 %&& ~param.debug
         param.MSK_IPAR_LOG = 0;
         cmd = ['minimize echo(' int2str(echolev) ')'];
     else
@@ -276,16 +276,16 @@ if isfield(param,'strict')
     end
 end
 
-%backward compatibility
-if isfield(param,'method')
-    if isempty(param.method)
-        param = rmfield(param,'method');
-    else
-        if ~isfield(param,[lower(param.problemType) 'method'])
-            param.([lower(param.problemType) 'method'])=param.method;
-        end
-    end
-end
+% %backward compatibility
+% if isfield(param,'method')
+%     if isempty(param.method)
+%         param = rmfield(param,'method');
+%     else
+%         if ~isfield(param,[lower(param.problemType) 'method'])
+%             param.([lower(param.problemType) 'method'])=param.method;
+%         end
+%     end
+% end
 
 switch param.problemType
     case {'LP'}
