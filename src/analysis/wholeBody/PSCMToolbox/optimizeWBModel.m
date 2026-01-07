@@ -81,7 +81,6 @@ function solution = optimizeWBModel(model, param)
 %                          * ctrs_y - the duals for the constraints from C
 %                          * ctrs_slack - Slacks of the additional constraints
 
-
 if ~exist('param','var')
     param = struct;
 end
@@ -181,7 +180,7 @@ switch solverName
 
     case 'ibm_cplex'
         % https://www.ibm.com/docs/en/icos/12.10.0?topic=infeasibility-coping-ill-conditioned-problem-handling-unscaled-infeasibilities
-        param.minNorm = 0;
+        % param.minNorm = 0; 
 
         % Decides how to scale the problem matrix.
         % Value  Meaning
