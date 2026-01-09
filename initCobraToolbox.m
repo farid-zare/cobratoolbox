@@ -1,7 +1,7 @@
 function initCobraToolbox(updateToolbox)
 %      _____   _____   _____   _____     _____     |
 %     /  ___| /  _  \ |  _  \ |  _  \   / ___ \    |   COnstraint-Based Reconstruction and Analysis
-%     | |     | | | | | |_| | | |_| |  | |___| |   |   The COBRA Toolbox verson 3.1
+%     | |     | | | | | |_| | | |_| |  | |___| |   |   The COBRA Toolbox verson 3.*
 %     | |     | | | | |  _  { |  _  /  |  ___  |   |
 %     | |___  | |_| | | |_| | | | \ \  | |   | |   |   Documentation:
 %     \_____| \_____/ |_____/ |_|  \_\ |_|   |_|   |   http://opencobra.github.io/cobratoolbox
@@ -19,7 +19,7 @@ function initCobraToolbox(updateToolbox)
 %     changeCobraSolver('gurobi','all');
 %     changeCobraSolver('mosek', 'CLP');
 %
-%     Maintained by Ronan M.T. Fleming
+%     Maintained by Ronan M.T. Fleming & Farid Zare
 
 % define GLOBAL variables
 global CBTDIR;
