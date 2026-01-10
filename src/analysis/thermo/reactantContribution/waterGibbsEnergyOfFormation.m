@@ -22,7 +22,7 @@ H = dHf_liquid + A*t + B*((t^2)/2) + C*(t^3)/3 + D*(t^4)/4 - E/t + F - H;
 % S° = standard entropy (J/mol*K)
 S = A*log(t) + B*t + C*(t^2)/2 + D*(t^3)/3 - E/(2*t^2) + G;
 % TS° = standard entropy (kJ/mol)
-TS = T*1000*S;
+TS = (T*S)/1000;
 
 dGf0 = H - TS;
    
