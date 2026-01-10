@@ -404,8 +404,16 @@ model.xu:      m x 1    non-negative lower bound on final molecular concentratio
 model.dxl:     m x 1    real valued lower bound on difference between final and initial molecular concentrations    dxl &lt;= x - x0
 model.dxu:     m x 1    real valued upper bound on difference between final and initial initial molecular concentrations  x - x0 &lt;= dxu</p>
 <p>model.Q        (n + k) x (n + k)    positive semi-definite matrix to minimise (1/2)v’<a href="#id58"><span class="problematic" id="id59">*</span></a>Q*v</p>
-<p>model.H        (n + k) x (n + k)    positive semi-definite matrix in objective (1/2)(v-h)’<a href="#id60"><span class="problematic" id="id61">*</span></a>H*(v-h) to be minimised
-model.h        (n + k) x 1          vector in objective (1/2)(v-h)’<a href="#id62"><span class="problematic" id="id63">*</span></a>H*(v-h) to be minimised</p>
+<dl class="simple">
+<dt>model.H        (n + k) x (n + k)    positive semi-definite matrix in objective (1/2)(v-h)’<a href="#id60"><span class="problematic" id="id61">*</span></a>H*(v-h) to be minimised</dt><dd><p>set H(j,j) = finite quadratic penalty, for reaction j
+OR
+set h(j) = 0 if no  quadratic penalty, for reaction j</p>
+</dd>
+<dt>model.h        (n + k) x 1          h vector in objective (1/2)(v-h)’<a href="#id62"><span class="problematic" id="id63">*</span></a>H*(v-h) to be minimised</dt><dd><p>set h(j) = finite desired net flux value, for reaction j
+OR
+set h(j) = NaN if no desired net flux value exists for reaction j</p>
+</dd>
+</dl>
 <p>model.SConsistentMetBool: m x 1  boolean indicating  stoichiometrically consistent metabolites
 model.SConsistentRxnBool: n x 1  boolean indicating  stoichiometrically consistent metabolites</p>
 <blockquote>
@@ -453,6 +461,14 @@ solution: solution structure with the following fields</p>
 <p>EXAMPLE:</p>
 <p>NOTE:</p>
 <p>Author(s): Ronan M.T. Fleming 2021</p>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="src.base.solvers.entropicFBA.mosekParamSetEFBA">
+<span class="sig-name descname"><span class="pre">mosekParamSetEFBA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">param</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/opencobra/cobratoolbox/blob/master/src/base/solvers/entropicFBA/mosekParamSetEFBA.m"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.base.solvers.entropicFBA.mosekParamSetEFBA" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a structure of pertinent user defined options for MOSEK
+OUTPUT
+param      parameter structure to be passed to the MOSEK solver</p>
 </dd></dl>
 
 <dl class="mat function">
@@ -506,14 +522,12 @@ c0u:     m x 1    non-negative upper bound on initial molecular concentrations
 cl:      m x 1    non-negative lower bound on final molecular concentrations
 cu:      m x 1    non-negative lower bound on final molecular concentrations
 dcl:     m x 1    real valued lower bound on difference between final and initial molecular concentrations
-dcu:     m x 1    real valued upper bound on difference between final and initial initial molecular concentrations</p>
-<blockquote>
-<div><p>wl:     k x 1    lower bound on external net flux
-wu:     k x 1    upper bound on external net flux</p>
+dcu:     m x 1    real valued upper bound on difference between final and initial initial molecular concentrations
+l_w:     k x 1    lower bound on external net flux
+u_w:     k x 1    upper bound on external net flux</p>
 <blockquote>
 <div><p>B:    <cite>m x k</cite>   External stoichiometric matrix
 b:     m x 1    RHS of S*v = b</p>
-</div></blockquote>
 </div></blockquote>
 <p>l_r:     m x 1    lower bound on regularisation term in S*v + r = b (default -inf)
 u_r:     m x 1    upper bound on regularisation term in S*v + r = b (default  inf)
@@ -568,8 +582,8 @@ param.internalNetFluxBounds: (‘original’)   = use model.lb and model.ub to s
 <p>OUTPUTS:
 vl:       n x 1    lower bound on internal net flux
 vu:       n x 1    upper bound on internal net flux
-vel:      k x 1    lower bound on external net flux
-veu:      k x 1    upper bound on external net flux
+l_w:      k x 1    lower bound on external net flux
+u_w:      k x 1    upper bound on external net flux
 vfl:      n x 1    non-negative lower bound on internal forward flux
 vfu:      n x 1    non-negative upper bound on internal forward flux
 vrl:      n x 1    non-negative lower bound on internal reverse flux

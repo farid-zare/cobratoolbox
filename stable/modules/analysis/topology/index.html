@@ -352,17 +352,17 @@ balanced cycles in the network</p>
 
 <dl class="mat function">
 <dt class="sig sig-object mat" id="src.analysis.topology.getCorrespondingCols">
-<span class="sig-name descname"><span class="pre">getCorrespondingCols</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">S</span></em>, <em class="sig-param"><span class="pre">rowBool</span></em>, <em class="sig-param"><span class="pre">colBool</span></em>, <em class="sig-param"><span class="pre">mode</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/opencobra/cobratoolbox/blob/master/src/analysis/topology/getCorrespondingCols.m"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.analysis.topology.getCorrespondingCols" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">getCorrespondingCols</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">A</span></em>, <em class="sig-param"><span class="pre">rowBool</span></em>, <em class="sig-param"><span class="pre">colBool</span></em>, <em class="sig-param"><span class="pre">mode</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/opencobra/cobratoolbox/blob/master/src/analysis/topology/getCorrespondingCols.m"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.analysis.topology.getCorrespondingCols" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a boolean vector that is true for a subset of the true cols in
 <cite>colBool</cite> according to whether the cols ‘exclusive’, ‘inclusive’, or
 ‘partial’ -ly correspond to true entries in <cite>rowBool</cite></p>
 <dl class="field-list simple">
 <dt class="field-odd">USAGE<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>restrictedColBool = getCorrespondingCols</strong> (<em>S, rowBool, colBool, mode</em>)</p>
+<dd class="field-odd"><p><strong>restrictedColBool = getCorrespondingCols</strong> (<em>A, rowBool, colBool, mode</em>)</p>
 </dd>
 <dt class="field-even">INPUTS<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>S</strong> – <cite>m x n</cite> stoichiometric matrix</p></li>
+<li><p><strong>A</strong> – <cite>m x n</cite> matrix</p></li>
 <li><p><strong>rowBool</strong> – <cite>m x 1</cite> boolean vector</p></li>
 <li><p><strong>colBool</strong> – <cite>n x 1</cite> boolean vector</p></li>
 <li><p><strong>mode</strong> – ‘exclusive’ or ‘inclusive’ or ‘partial’</p></li>
@@ -374,7 +374,7 @@ balanced cycles in the network</p>
 </dl>
 <p class="rubric">Example</p>
 <dl>
-<dt>S =</dt><dd><dl class="option-list">
+<dt>A =</dt><dd><dl class="option-list">
 <dt><kbd><span class="option">-1</span></kbd></dt>
 <dd><p>0     0     0     0
 2    -3     0     0     0
@@ -407,17 +407,17 @@ colBool = [1; 1; 1; 1; 1];</p>
 
 <dl class="mat function">
 <dt class="sig sig-object mat" id="src.analysis.topology.getCorrespondingRows">
-<span class="sig-name descname"><span class="pre">getCorrespondingRows</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">S</span></em>, <em class="sig-param"><span class="pre">rowBool</span></em>, <em class="sig-param"><span class="pre">colBool</span></em>, <em class="sig-param"><span class="pre">mode</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/opencobra/cobratoolbox/blob/master/src/analysis/topology/getCorrespondingRows.m"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.analysis.topology.getCorrespondingRows" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">getCorrespondingRows</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">A</span></em>, <em class="sig-param"><span class="pre">rowBool</span></em>, <em class="sig-param"><span class="pre">colBool</span></em>, <em class="sig-param"><span class="pre">mode</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/opencobra/cobratoolbox/blob/master/src/analysis/topology/getCorrespondingRows.m"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.analysis.topology.getCorrespondingRows" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a boolean vector that is true for a subset of the true rows in
 <cite>rowBool</cite> according to whether the rows ‘exclusive’, ‘inclusive’, or
 ‘partial’ -ly correspond to true entries in <cite>colBool</cite></p>
 <dl class="field-list simple">
 <dt class="field-odd">USAGE<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>restricedRowBool = getCorrespondingRows</strong> (<em>S, rowBool, colBool, mode</em>)</p>
+<dd class="field-odd"><p><strong>restricedRowBool = getCorrespondingRows</strong> (<em>A, rowBool, colBool, mode</em>)</p>
 </dd>
 <dt class="field-even">INPUTS<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>S</strong> – <cite>m x n</cite> stoichiometric matrix</p></li>
+<li><p><strong>A</strong> – <cite>m x n</cite> matrix</p></li>
 <li><p><strong>rowBool</strong> – <cite>m x 1</cite> boolean vector</p></li>
 <li><p><strong>colBool</strong> – <cite>n x 1</cite> boolean vector</p></li>
 <li><p><strong>mode</strong> – ‘exclusive’ , ‘inclusive’ or ‘partial’</p></li>
@@ -429,7 +429,7 @@ colBool = [1; 1; 1; 1; 1];</p>
 </dl>
 <p class="rubric">Example</p>
 <dl>
-<dt>S =</dt><dd><dl class="option-list">
+<dt>A =</dt><dd><dl class="option-list">
 <dt><kbd><span class="option">-1</span></kbd></dt>
 <dd><p>0     0     0     0
 2    -3     0     0     0
@@ -502,6 +502,25 @@ between the columns of <cite>A</cite></p>
 </ul>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="src.analysis.topology.rankMetabolicConnectivity">
+<span class="sig-name descname"><span class="pre">rankMetabolicConnectivity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">model</span></em>, <em class="sig-param"><span class="pre">param</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/opencobra/cobratoolbox/blob/master/src/analysis/topology/rankMetabolicConnectivity.m"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.analysis.topology.rankMetabolicConnectivity" title="Permalink to this definition">¶</a></dt>
+<dd><p>metabolite connectivity in a model</p>
+<p>INPUT
+model</p>
+<p>OUTPUT
+rankMetConnectivity  metabolite abbreviations by decreasing connectivity
+rankMetInd           rank ordered metabolite indices
+rankConnectivity     metabolite connectivity by decreasing connectivity</p>
+<p>OPTIONAL INPUT
+param.internal    {(1),0} if only internal reaction connectivity is</p>
+<blockquote>
+<div><p>considered</p>
+</div></blockquote>
+<p>param.plot        {(1),0} if plots produces
+param.n           (10) number of top ranked metabolites to plot</p>
 </dd></dl>
 
 <dl class="mat function">
