@@ -81,7 +81,6 @@ function solution = optimizeWBModel(model, param)
 %                          * ctrs_y - the duals for the constraints from C
 %                          * ctrs_slack - Slacks of the additional constraints
 
-
 if ~exist('param','var')
     param = struct;
 end
