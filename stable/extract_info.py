@@ -23,18 +23,12 @@ def get_file_info(file_path):
 
             template_content = template_content.replace('IFRAMETUTORIAL.html', relative_path)
             template_content = template_content.replace('((TutorialName))', base_name)
-            template_content = template_content.replace(
-                '((TutorialPDFpath))',
-                f'https://github.com/opencobra/COBRA.tutorials/tree/master/{relative_path.replace(".html", ".pdf")}'
-            )
+
             template_content = template_content.replace(
                 '((TutorialMLXpath))',
                 f'https://github.com/opencobra/COBRA.tutorials/tree/master/{relative_path.replace(".html", ".mlx")}'
             )
-            template_content = template_content.replace(
-                '((TutorialMATpath))',
-                f'https://github.com/opencobra/COBRA.tutorials/tree/master/{relative_path.replace(".html", ".m")}'
-            )
+
             template_content = template_content.replace(
                 '((TutorialGITHUBpath))',
                 f'https://github.com/opencobra/COBRA.tutorials/tree/master/{"/".join(file_path.split("/")[2:-1])}'
