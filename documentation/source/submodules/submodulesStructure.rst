@@ -146,7 +146,6 @@ COBRA.models
 
 How to contribute in practice
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-A template for generating a new tutorial is provided `here <https://github.com/opencobra/COBRA.tutorials/blob/master/.template/tutorial_template.mlx>`__.
 
 **Select the correct repository**
 
@@ -170,6 +169,7 @@ A template for generating a new tutorial is provided `here <https://github.com/o
 
 Contribute a tutorial of your work to the `COBRA Tutorials <https://github.com/opencobra/COBRA.tutorials>`__.
 --------------------------------------------------------------------------------------------------------------------
+A template for generating a new tutorial is provided `here <https://github.com/opencobra/COBRA.tutorials/blob/master/.template/tutorial_template.mlx>`__.
 
 Overview
 ~~~~~~~~~~
