@@ -11,7 +11,7 @@ function [solution] = enumerateOptimalSolutions(model)
 %
 % OUTPUT:
 %    solution:    solution structure
-%
+% 
 %                   * fluxes - Flux distribution for each iteration
 %                   * nonzero - Boolean matrix denoting which fluxes are nonzero for each iteration
 %
@@ -89,4 +89,5 @@ while 1
     PrevFW = solMILP.full(1:nRxns) > tol;
     solution.fluxes(:,end+1) = solMILP.full(1:nRxns);   
 end
+
 
