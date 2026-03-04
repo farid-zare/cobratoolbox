@@ -22,10 +22,6 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      - name: Make workspace writable for MATLAB container user
-        run: |
-          sudo chown -R 1000:1000 "${GITHUB_WORKSPACE}"
-
       # MATLAB runs inside Docker
       - name: Run MATLAB Tests in Docker (licensed MAC, xvfb headless)
         env:
@@ -40,8 +36,8 @@ jobs:
           sudo docker run --rm \
             --mac-address="02:42:ac:11:00:02" \
             --platform linux/amd64 \
-            -u matlab \
-            -e HOME=/home/matlab \
+            -u "$(id -u):$(id -g)" \
+            -e HOME=/tmp \
             -e COBRA_CI=1 \
             -e QT_QPA_PLATFORM="${QT_QPA_PLATFORM}" \
             -e JAVA_AWT_HEADLESS="${JAVA_AWT_HEADLESS}" \
@@ -52,11 +48,11 @@ jobs:
             -lc '
               set -euo pipefail
 
-              echo "Container user:"
-              whoami
+              echo "Running inside container as:"
+              id
               echo "HOME=$HOME"
 
-              mkdir -p "$HOME/.matlab" "$HOME/.MathWorks"
+              mkdir -p /tmp/.matlab /tmp/.MathWorks
 
               echo "Starting MATLAB tests..."
 
