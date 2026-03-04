@@ -14,11 +14,19 @@ permissions:
 jobs:
   build:
     runs-on: self-hosted
+
     steps:
       - name: Check out merged PR code
         uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
 
-      # MATLAB now runs INSIDE Docker, so we do NOT install xvfb on the host.
+      - name: Make workspace writable for MATLAB container user
+        run: |
+          sudo chown -R 1000:1000 "${GITHUB_WORKSPACE}"
+
+      # MATLAB runs inside Docker
       - name: Run MATLAB Tests in Docker (licensed MAC, xvfb headless)
         env:
           QT_QPA_PLATFORM: offscreen
@@ -26,14 +34,14 @@ jobs:
         run: |
           set -euo pipefail
 
-          # Confirm image exists (built on the runner as: docker build -t matlab .)
+          # Confirm MATLAB image exists
           sudo docker image inspect matlab >/dev/null
 
-          # Run container with fixed MAC for node-locked MATLAB license
           sudo docker run --rm \
             --mac-address="02:42:ac:11:00:02" \
             --platform linux/amd64 \
-            -u "$(id -u):$(id -g)" \
+            -u matlab \
+            -e HOME=/home/matlab \
             -e QT_QPA_PLATFORM="${QT_QPA_PLATFORM}" \
             -e JAVA_AWT_HEADLESS="${JAVA_AWT_HEADLESS}" \
             -v "${GITHUB_WORKSPACE}:/work" \
@@ -43,12 +51,25 @@ jobs:
             -lc '
               set -euo pipefail
 
-              # Ensure submodules (if any) are present for this PR checkout
-              git submodule update --init --recursive
+              echo "Container user:"
+              whoami
+              echo "HOME=$HOME"
 
-              # Run tests headless
+              mkdir -p "$HOME/.matlab" "$HOME/.MathWorks"
+
+              echo "Starting MATLAB tests..."
+
               xvfb-run -a -s "-screen 0 1280x1024x24" \
-                matlab -noFigureWindows -batch "try; run(\"initCobraToolbox.m\"); changeCobraSolver(\"gurobi\",\"all\",0); set(0,\"DefaultFigureVisible\",\"off\"); run(\"test/testAll.m\"); catch ME; disp(getReport(ME,\"extended\")); exit(1); end; exit(0);"
+                matlab -noFigureWindows -batch "try; \
+                  run(\"initCobraToolbox.m\"); \
+                  changeCobraSolver(\"gurobi\",\"all\",0); \
+                  set(0,\"DefaultFigureVisible\",\"off\"); \
+                  run(\"test/testAll.m\"); \
+                catch ME; \
+                  disp(getReport(ME,\"extended\")); \
+                  exit(1); \
+                end; \
+                exit(0);"
             '
 
       - name: Set up Node.js 20
@@ -58,21 +79,17 @@ jobs:
 
       - name: Convert JUnit to CTRF
         run: |
-          # Check Node.js version (optional guard)
           MAJOR="$(node -p "process.versions.node.split('.')[0]")"
           if [ "$MAJOR" -lt 20 ]; then
-            echo "❌ Node.js version too old: $(node -v). Please install Node 20 or newer."
+            echo "❌ Node.js version too old: $(node -v)"
             exit 1
           fi
 
-          # Print versions for debugging clarity
           echo "✅ Node version: $(node -v)"
-          echo "✅ npm version:  $(npm -v)"
+          echo "✅ npm version: $(npm -v)"
 
-          # Ensure output directory exists
           mkdir -p ./ctrf
 
-          # Run conversion
           echo "Converting JUnit XML to CTRF JSON..."
           npx --yes junit-to-ctrf@0.0.12 ./testReport.junit.xml -o ./ctrf/ctrf-report.json
 
@@ -87,7 +104,6 @@ jobs:
 
       - name: Upload PR Number as Artifact
         run: echo $PR_NUMBER > pr_number.txt
-        shell: bash
 
       - name: Upload PR Number Artifact
         uses: actions/upload-artifact@v4
