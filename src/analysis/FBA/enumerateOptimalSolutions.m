@@ -7,7 +7,7 @@ function [solution] = enumerateOptimalSolutions(model)
 %    [solution] = enumerateOptimalSolution(model)
 %
 % INPUT:
-%    model:       COBRA model structure
+%    model:       COBRA model structure 
 %
 % OUTPUT:
 %    solution:    solution structure
@@ -89,4 +89,5 @@ while 1
     PrevFW = solMILP.full(1:nRxns) > tol;
     solution.fluxes(:,end+1) = solMILP.full(1:nRxns);   
 end
+
 
