@@ -42,6 +42,7 @@ jobs:
             --platform linux/amd64 \
             -u matlab \
             -e HOME=/home/matlab \
+            -e COBRA_CI=1 \
             -e QT_QPA_PLATFORM="${QT_QPA_PLATFORM}" \
             -e JAVA_AWT_HEADLESS="${JAVA_AWT_HEADLESS}" \
             -v "${GITHUB_WORKSPACE}:/work" \
