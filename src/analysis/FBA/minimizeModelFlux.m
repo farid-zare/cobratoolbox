@@ -34,7 +34,7 @@ function [MinimizedFlux, modelIrrev]= minimizeModelFlux(model, osenseStr, minNor
 %                       The zero-norm is approximated by a non-convex approximation
 %                       Six approximations are available: capped-L1 norm, exponential function
 %                       logarithmic function, SCAD function, L_p norm with p<0, L_p norm with 0<p<1
-%                       Note : capped-L1, exponential and logarithmic function often give
+%                       Note : capped-L1, exponential and logarithmic functions often give
 %                       the best result in term of sparsity.
 %
 %                       .. See "Le Thi et al., DC approximation approaches for sparse optimization,
