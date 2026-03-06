@@ -1,5 +1,4 @@
 name: cobratoolboxCI (merge, test, and upload)
-
 on:
   pull_request:
     branches:
@@ -7,15 +6,16 @@ on:
       - master
     types: [opened, synchronize, reopened]
   workflow_dispatch:
-
 permissions:
   contents: read
-
 jobs:
   build:
     runs-on: self-hosted
-
     steps:
+      - name: Cleanup orphaned MATLAB containers
+        run: sudo docker ps -q --filter ancestor=matlab | xargs -r sudo docker rm -f
+        continue-on-error: true
+
       - name: Check out merged PR code
         uses: actions/checkout@v4
         with:
@@ -29,15 +29,15 @@ jobs:
           JAVA_AWT_HEADLESS: "1"
         run: |
           set -euo pipefail
-
           # Confirm MATLAB image exists
           sudo docker image inspect matlab >/dev/null
-
           sudo docker run --rm \
             --mac-address="02:42:ac:11:00:02" \
             --platform linux/amd64 \
             -u "$(id -u):$(id -g)" \
             -e HOME=/tmp \
+            -e USER=matlab \
+            -e LOGNAME=matlab \
             -e COBRA_CI=1 \
             -e QT_QPA_PLATFORM="${QT_QPA_PLATFORM}" \
             -e JAVA_AWT_HEADLESS="${JAVA_AWT_HEADLESS}" \
@@ -47,15 +47,12 @@ jobs:
             matlab \
             -lc '
               set -euo pipefail
-
               echo "Running inside container as:"
               id
               echo "HOME=$HOME"
-
+              echo "USER=$USER"
               mkdir -p /tmp/.matlab /tmp/.MathWorks
-
               echo "Starting MATLAB tests..."
-
               xvfb-run -a -s "-screen 0 1280x1024x24" \
                 matlab -noFigureWindows -batch "try; \
                   run(\"initCobraToolbox.m\"); \
@@ -81,12 +78,9 @@ jobs:
             echo "❌ Node.js version too old: $(node -v)"
             exit 1
           fi
-
           echo "✅ Node version: $(node -v)"
           echo "✅ npm version: $(npm -v)"
-
           mkdir -p ./ctrf
-
           echo "Converting JUnit XML to CTRF JSON..."
           npx --yes junit-to-ctrf@0.0.12 ./testReport.junit.xml -o ./ctrf/ctrf-report.json
 
