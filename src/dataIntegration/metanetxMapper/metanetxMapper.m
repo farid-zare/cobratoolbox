@@ -6,7 +6,7 @@ function [metData] = metanetxMapper(metInfo, varargin)
 %    [metData] = metanetxMapper(metInfo, infoType)
 %
 % INPUTS:
-%    metInfo:     string information of the metabolite (Common name, VMH name, CHEBI id,
+%    metInfo:    string information of the metabolite (Common name, VMH name, CHEBI id,
 %    Swiss Lipid id, HMDB id, Lipidmap, or InChIkey are supported)
 %
 %
