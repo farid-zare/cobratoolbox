@@ -65,8 +65,8 @@
         <link rel="search" title="Search" href="../../../../search.html"/>
     <link rel="top" title="The COBRA Toolbox" href="../../../../index.html"/>
         <link rel="up" title="Solvers" href="../index.html"/>
-        <link rel="next" title="Ci" href="../../ci/index.html"/>
-        <link rel="prev" title="Cplex" href="../cplex/index.html"/> 
+        <link rel="next" title="Lindo" href="../lindo/index.html"/>
+        <link rel="prev" title="Mosek" href="../mosek/index.html"/> 
 
   
   <script src="../../../../_static/js/modernizr.min.js"></script>
@@ -100,44 +100,26 @@
           
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" id="simple"/>
+    <input type="text" name="q" placeholder="Search docs" id="simple" autocomplete="off"/>
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
-    <script>
-    	var options = {
-
-		url: "../../../../_static/json/functions.json",
-
-		getValue: "name",
-
-		list: {
-            onKeyEnterEvent: function(item) {
-                    return "_static/../" + item.website_url
-            },
-            maxNumberOfElements: 25,
-			match: {
-					enabled: true,
-			},
-            sort: {
-			    enabled: true
-		    }
-		},
-	template: {
-	    	type: "custom",
-		    method: function(value, item) {
-                return "<span><a href='../../../../_static/../" + item.website_url + "' >" + value + "</a>" + "<a href='../../../../_static/../" + item.website_url + "' ><img src='../../../../_static/link.svg'/></a></span>";
-		    }
-	    },
-		
-		theme: "square"
-
-	};
-
-	$("#simple").easyAutocomplete(options);
-
-
-    </script>
   </form>
+  <link rel="stylesheet" href="../../../../_static/css/siteSearch.css" type="text/css" />
+  
+  <script src="../../../../_static/doctools.js"></script>
+  <script src="../../../../_static/searchtools.js"></script>
+  <script src="../../../../_static/language_data.js"></script>
+  <script src="../../../../_static/js/siteSearch.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      SiteSearch.init({
+        inputId: "simple",
+        siteRoot: "../../../../",
+        searchIndexUrl: "../../../../searchindex.js",
+        tutorialsIndexUrl: "../../../../_static/json/tutorialsSearchIndex.json"
+      });
+    });
+  </script>
 </div>
 
           
@@ -158,32 +140,33 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Functions</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../analysis/index.html">Analysis</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Base</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../../utilities/index.html">Utilities</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../codeConsistency/index.html">Codeconsistency</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../io/index.html">Io</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../index.html">Solvers</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../param/index.html">Param</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../NLP/index.html">Nlp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../gurobi/index.html">Gurobi</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../minos/index.html">Minos</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../optarrow/index.html">Optarrow</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../lindo/index.html">Lindo</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../rescale/index.html">Rescale</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../gams/index.html">Gams</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../init/index.html">Init</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cardOpt/index.html">Cardopt</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../entropicFBA/index.html">Entropicfba</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../statusMapping/index.html">Statusmapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../NLP/index.html">Nlp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../minos/index.html">Minos</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../lp_solve/index.html">Lp_solve</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../varKin/index.html">Varkin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../init/index.html">Init</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../entropicFBA/index.html">Entropicfba</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cardOpt/index.html">Cardopt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gams/index.html">Gams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gurobi/index.html">Gurobi</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../mosek/index.html">Mosek</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cplex/index.html">Cplex</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Getsetsolver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../lindo/index.html">Lindo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../param/index.html">Param</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rescale/index.html">Rescale</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cplex/index.html">Cplex</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../ci/index.html">Ci</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../paths/index.html">Paths</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cobrarrow/index.html">Cobrarrow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../utilities/index.html">Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../paths/index.html">Paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ci/index.html">Ci</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../install/index.html">Install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../io/index.html">Io</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../dataIntegration/index.html">Dataintegration</a></li>
@@ -246,7 +229,117 @@
             
   <section id="getsetsolver">
 <span id="id1"></span><h1>Getsetsolver<a class="headerlink" href="#getsetsolver" title="Permalink to this heading">¶</a></h1>
-<span class="target" id="module-src.base.solvers.getSetSolver"></span><dl class="mat function">
+<span class="target" id="module-src.base.solvers.getSetSolver"></span><dl class="mat class">
+<dt class="sig sig-object mat" id="src.base.solvers.getSetSolver.CobraSolverState">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">CobraSolverState</span></span><a class="reference external" href="https://github.com/opencobra/cobratoolbox/blob/master/src/base/solvers/getSetSolver/CobraSolverState.m"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.base.solvers.getSetSolver.CobraSolverState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Backward-compatible façade over the COBRA solver-state globals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">USAGE<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state = CobraSolverState.get()</strong></p></li>
+<li><p><strong>name  = CobraSolverState.getSolver</strong> (<em>problemType</em>) – CobraSolverState.setSolver(problemType, name)</p></li>
+<li><p><strong>p     = CobraSolverState.getParams</strong> (<em>solverType</em>) – CobraSolverState.setParam(solverType, paramName, paramValue)
+CobraSolverState.restore(state)</p></li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dt>DESCRIPTION:</dt><dd><p><cite>CobraSolverState</cite> is a typed accessor OVER the 14 solver-state globals
+(feature 015-solver-spine-hardening, research.md R3):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>solver selection (7): <cite>CBT_{LP,QP,MILP,MIQP,EP,NLP,CLP}_SOLVER</cite></p></li>
+<li><p>solver parameters (7): <cite>CBT_{LP,QP,MILP,MIQP,EP,NLP,CLP}_PARAMS</cite></p></li>
+</ul>
+</div></blockquote>
+<p>The globals stay authoritative and are never deleted (Principle II): reading
+or writing through this accessor is EQUIVALENT to reading or writing the
+corresponding global, so existing code that does <cite>global CBT_LP_SOLVER; …</cite>
+keeps working unchanged. The purpose of the accessor is to replace the
+<cite>eval</cite>-built global-name access in the selection/parameter path with a fixed
+<cite>switch</cite> on a validated type: there is deliberately NO <cite>eval</cite> here
+(constitution VII-A/VII-D) - reintroducing one would defeat the feature.</p>
+</dd>
+<dt>INPUTS (accessor methods):</dt><dd><dl class="simple">
+<dt>problemType / solverType:  one of <cite>‘LP’</cite>, <cite>‘QP’</cite>, <cite>‘MILP’</cite>, <cite>‘MIQP’</cite>,</dt><dd><p><cite>‘EP’</cite>, <cite>‘NLP’</cite>, <cite>‘CLP’</cite> (case-insensitive);
+an unknown type raises
+<cite>COBRA:CobraSolverState:unknownType</cite></p>
+</dd>
+</dl>
+<p>name:                      solver name (char) to select for <cite>problemType</cite>
+paramName / paramValue:    parameter field name / value to set on the</p>
+<blockquote>
+<div><p><cite>solverType</cite> parameter struct</p>
+</div></blockquote>
+<dl class="simple">
+<dt>state:                     a snapshot struct as returned by <cite>get()</cite>, used by</dt><dd><p><cite>restore()</cite> to reinstate a full state losslessly</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">OUTPUTS<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> – snapshot struct with fields <cite>.solver</cite> and <cite>.params</cite>, each a struct
+with one field per problem type carrying the raw global value</p></li>
+<li><p><strong>name</strong> – the selected solver for <cite>problemType</cite> (<cite>‘’</cite> if unset)</p></li>
+<li><p><strong>p</strong> – the parameter struct for <cite>solverType</cite> (<cite>[]</cite> if unset)</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><cite>get()</cite>/<cite>restore()</cite> capture and reinstate the RAW global values so a
+save/restore round-trip is lossless; <cite>getSolver</cite> normalises an unset
+selection to <cite>‘’</cite> per the accessor contract. Each read/write selects the
+matching global through a fixed <cite>switch</cite> (mirroring the established pattern
+in <cite>getCobraSolverParams.m</cite>), never through a dynamically built name.</p>
+</div>
+<dl class="simple">
+<dt>Author:</dt><dd><ul class="simple">
+<li><p>Created for feature 015-solver-spine-hardening, 2026-07-20.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="mat staticmethod">
+<dt class="sig sig-object mat" id="src.base.solvers.getSetSolver.CobraSolverState.get">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/opencobra/cobratoolbox/blob/master/src/base/solvers/getSetSolver/CobraSolverState.get.m"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.base.solvers.getSetSolver.CobraSolverState.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a lossless snapshot struct of all 14 solver-state globals.</p>
+</dd></dl>
+
+<dl class="mat staticmethod">
+<dt class="sig sig-object mat" id="src.base.solvers.getSetSolver.CobraSolverState.getParams">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">getParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">solverType</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/opencobra/cobratoolbox/blob/master/src/base/solvers/getSetSolver/CobraSolverState.getParams.m"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.base.solvers.getSetSolver.CobraSolverState.getParams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the parameter struct for <cite>solverType</cite> (<cite>[]</cite> if unset).</p>
+</dd></dl>
+
+<dl class="mat staticmethod">
+<dt class="sig sig-object mat" id="src.base.solvers.getSetSolver.CobraSolverState.getSolver">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">getSolver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">problemType</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/opencobra/cobratoolbox/blob/master/src/base/solvers/getSetSolver/CobraSolverState.getSolver.m"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.base.solvers.getSetSolver.CobraSolverState.getSolver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the selected solver for problemType (<cite>‘’</cite> if unset).</p>
+</dd></dl>
+
+<dl class="mat staticmethod">
+<dt class="sig sig-object mat" id="src.base.solvers.getSetSolver.CobraSolverState.restore">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">restore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">state</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/opencobra/cobratoolbox/blob/master/src/base/solvers/getSetSolver/CobraSolverState.restore.m"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.base.solvers.getSetSolver.CobraSolverState.restore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reinstate a full snapshot (the inverse of <cite>get()</cite>), losslessly.</p>
+</dd></dl>
+
+<dl class="mat staticmethod">
+<dt class="sig sig-object mat" id="src.base.solvers.getSetSolver.CobraSolverState.setParam">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">setParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">solverType</span></em>, <em class="sig-param"><span class="pre">paramName</span></em>, <em class="sig-param"><span class="pre">paramValue</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/opencobra/cobratoolbox/blob/master/src/base/solvers/getSetSolver/CobraSolverState.setParam.m"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.base.solvers.getSetSolver.CobraSolverState.setParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a single parameter field on the <cite>solverType</cite> parameter struct.</p>
+</dd></dl>
+
+<dl class="mat staticmethod">
+<dt class="sig sig-object mat" id="src.base.solvers.getSetSolver.CobraSolverState.setSolver">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">setSolver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">problemType</span></em>, <em class="sig-param"><span class="pre">name</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/opencobra/cobratoolbox/blob/master/src/base/solvers/getSetSolver/CobraSolverState.setSolver.m"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.base.solvers.getSetSolver.CobraSolverState.setSolver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select solver <cite>name</cite> for <cite>problemType</cite> (writes the matching global).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="mat function">
 <dt class="sig sig-object mat" id="src.base.solvers.getSetSolver.changeCobraSolver">
 <span class="sig-name descname"><span class="pre">changeCobraSolver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">solverName</span></em>, <em class="sig-param"><span class="pre">problemType</span></em>, <em class="sig-param"><span class="pre">printLevel</span></em>, <em class="sig-param"><span class="pre">validationLevel</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/opencobra/cobratoolbox/blob/master/src/base/solvers/getSetSolver/changeCobraSolver.m"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.base.solvers.getSetSolver.changeCobraSolver" title="Permalink to this definition">¶</a></dt>
 <dd><p>Changes the Cobra Toolbox optimization solver(s)</p>
@@ -624,10 +717,10 @@ returned as <cite>NaN</cite>)</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../ci/index.html" class="btn btn-default float-right" title="Ci" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../lindo/index.html" class="btn btn-default float-right" title="Lindo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../cplex/index.html" class="btn btn-default" title="Cplex" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../mosek/index.html" class="btn btn-default" title="Mosek" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

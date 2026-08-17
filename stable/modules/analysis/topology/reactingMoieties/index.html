@@ -65,8 +65,8 @@
         <link rel="search" title="Search" href="../../../../search.html"/>
     <link rel="top" title="The COBRA Toolbox" href="../../../../index.html"/>
         <link rel="up" title="Topology" href="../index.html"/>
-        <link rel="next" title="Graphhypergraphconversion" href="../graphHypergraphConversion/index.html"/>
-        <link rel="prev" title="Fr" href="../FR/index.html"/> 
+        <link rel="next" title="Fr" href="../FR/index.html"/>
+        <link rel="prev" title="Graphhypergraphconversion" href="../graphHypergraphConversion/index.html"/> 
 
   
   <script src="../../../../_static/js/modernizr.min.js"></script>
@@ -100,44 +100,26 @@
           
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" id="simple"/>
+    <input type="text" name="q" placeholder="Search docs" id="simple" autocomplete="off"/>
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
-    <script>
-    	var options = {
-
-		url: "../../../../_static/json/functions.json",
-
-		getValue: "name",
-
-		list: {
-            onKeyEnterEvent: function(item) {
-                    return "_static/../" + item.website_url
-            },
-            maxNumberOfElements: 25,
-			match: {
-					enabled: true,
-			},
-            sort: {
-			    enabled: true
-		    }
-		},
-	template: {
-	    	type: "custom",
-		    method: function(value, item) {
-                return "<span><a href='../../../../_static/../" + item.website_url + "' >" + value + "</a>" + "<a href='../../../../_static/../" + item.website_url + "' ><img src='../../../../_static/link.svg'/></a></span>";
-		    }
-	    },
-		
-		theme: "square"
-
-	};
-
-	$("#simple").easyAutocomplete(options);
-
-
-    </script>
   </form>
+  <link rel="stylesheet" href="../../../../_static/css/siteSearch.css" type="text/css" />
+  
+  <script src="../../../../_static/doctools.js"></script>
+  <script src="../../../../_static/searchtools.js"></script>
+  <script src="../../../../_static/language_data.js"></script>
+  <script src="../../../../_static/js/siteSearch.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      SiteSearch.init({
+        inputId: "simple",
+        siteRoot: "../../../../",
+        searchIndexUrl: "../../../../searchindex.js",
+        tutorialsIndexUrl: "../../../../_static/json/tutorialsSearchIndex.json"
+      });
+    });
+  </script>
 </div>
 
           
@@ -157,49 +139,49 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Functions</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Analysis</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../../QFCA/index.html">Qfca</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../wholeBody/index.html">Wholebody</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../uFBA/index.html">Ufba</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../coupling/index.html">Coupling</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../ICONGEMs/index.html">Icongems</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../findMIIS/index.html">Findmiis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../sparseFBA/index.html">Sparsefba</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../rMTA/index.html">Rmta</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../igemRNA/index.html">Igemrna</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../dynamicFBA/index.html">Dynamicfba</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../KLdistance/index.html">Kldistance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../gMCS/index.html">Gmcs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../multiSpecies/index.html">Multispecies</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../percentileCalc/index.html">Percentilecalc</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../sampling/index.html">Sampling</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../rFBA/index.html">Rfba</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Topology</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../extremeRays/index.html">Extremerays</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../conservedMoieties/index.html">Conservedmoieties</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../FR/index.html">Fr</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Reactingmoieties</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../graphHypergraphConversion/index.html">Graphhypergraphconversion</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../parsimoniousFBA/index.html">Parsimoniousfba</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../persephone/index.html">Persephone</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../ROOM/index.html">Room</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../robustnessAnalysis/index.html">Robustnessanalysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../rumba/index.html">Rumba</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../exploration/index.html">Exploration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../deletion/index.html">Deletion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../thermo/index.html">Thermo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../relaxedFBA/index.html">Relaxedfba</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../geometricFBA/index.html">Geometricfba</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../FVA/index.html">Fva</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../transport/index.html">Transport</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../fastForest/index.html">Fastforest</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nutritionAlgorithm/index.html">Nutritionalgorithm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../mdFBA/index.html">Mdfba</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../FBA/index.html">Fba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../rumba/index.html">Rumba</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../subspaces/index.html">Subspaces</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../MOMA/index.html">Moma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gMCS/index.html">Gmcs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../findMIIS/index.html">Findmiis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../deletion/index.html">Deletion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nutritionAlgorithm/index.html">Nutritionalgorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../multiSpecies/index.html">Multispecies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../percentileCalc/index.html">Percentilecalc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../rMTA/index.html">Rmta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../robustnessAnalysis/index.html">Robustnessanalysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mdFBA/index.html">Mdfba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dynamicFBA/index.html">Dynamicfba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../rFBA/index.html">Rfba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wholeBody/index.html">Wholebody</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../persephone/index.html">Persephone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../KLdistance/index.html">Kldistance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../igemRNA/index.html">Igemrna</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../transport/index.html">Transport</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../geometricFBA/index.html">Geometricfba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ICONGEMs/index.html">Icongems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FBA/index.html">Fba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sparseFBA/index.html">Sparsefba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../relaxedFBA/index.html">Relaxedfba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../parsimoniousFBA/index.html">Parsimoniousfba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../thermo/index.html">Thermo</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Topology</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../extremeRays/index.html">Extremerays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../graphHypergraphConversion/index.html">Graphhypergraphconversion</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Reactingmoieties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../FR/index.html">Fr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../conservedMoieties/index.html">Conservedmoieties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../uFBA/index.html">Ufba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ROOM/index.html">Room</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../FVA/index.html">Fva</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fastForest/index.html">Fastforest</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../fluxEnrichmentAnalysis/index.html">Fluxenrichmentanalysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../coupling/index.html">Coupling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../QFCA/index.html">Qfca</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sampling/index.html">Sampling</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../base/index.html">Base</a></li>
@@ -673,6 +655,15 @@ is represented as a separate edge, preserving all node and edge properties</p>
 </dd></dl>
 
 <dl class="mat function">
+<dt class="sig sig-object mat" id="src.analysis.topology.reactingMoieties.findRXNFilesPlain">
+<span class="sig-name descname"><span class="pre">findRXNFilesPlain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">model</span></em>, <em class="sig-param"><span class="pre">rxnfileDir</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/opencobra/cobratoolbox/blob/master/src/analysis/topology/reactingMoieties/findRXNFilesPlain.m"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.analysis.topology.reactingMoieties.findRXNFilesPlain" title="Permalink to this definition">¶</a></dt>
+<dd><p>findRXNFilesPlain Find RXN files and internal reactions using base MATLAB.</p>
+<p>This mirrors the COBRA findRXNFiles behavior used by checkABRXNFiles, but
+always assigns internalRxnBool, including when every model reaction has an
+RXN file.</p>
+</dd></dl>
+
+<dl class="mat function">
 <dt class="sig sig-object mat" id="src.analysis.topology.reactingMoieties.getMetMoietySubgraphs">
 <span class="sig-name descname"><span class="pre">getMetMoietySubgraphs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">model</span></em>, <em class="sig-param"><span class="pre">BG</span></em>, <em class="sig-param"><span class="pre">arm</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/opencobra/cobratoolbox/blob/master/src/analysis/topology/reactingMoieties/getMetMoietySubgraphs.m"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.analysis.topology.reactingMoieties.getMetMoietySubgraphs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract metabolite, moiety, and moiety-instance subgraphs from the bond graph of a model</p>
@@ -778,7 +769,16 @@ A MATLAB digraph structure with the following tables and variables:</p>
 <dt class="field-odd">OPTIONAL INPUTS<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>options</strong> – Structure with following fields:
 * .sanityChecks {(0),1} true if additional sanity checks
-on computations, but substantially more computation time</p>
+on computations, but substantially more computation time
+* .useOpenSourceMoietyTools {(1),0} true (default) to use
+open-source-only implementations (tabulatePlain,
+minimumSetCoverPlain) instead of proprietary MATLAB
+toolbox functions (Statistics_Toolbox’s tabulate,
+Optimization_Toolbox’s intlinprog). Set to false to
+prefer the licensed-toolbox implementations for backward
+compatibility; automatically falls back to the
+open-source path (with a warning) if the required
+toolbox is not licensed on this machine.</p>
 </dd>
 <dt class="field-even">OUTPUTS<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
@@ -938,6 +938,16 @@ positions where <cite>Bkey</cite> is a member of <cite>Akey</cite></p>
 </dd></dl>
 
 <dl class="mat function">
+<dt class="sig sig-object mat" id="src.analysis.topology.reactingMoieties.minimumSetCoverPlain">
+<span class="sig-name descname"><span class="pre">minimumSetCoverPlain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">coverMatrix</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/opencobra/cobratoolbox/blob/master/src/analysis/topology/reactingMoieties/minimumSetCoverPlain.m"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.analysis.topology.reactingMoieties.minimumSetCoverPlain" title="Permalink to this definition">¶</a></dt>
+<dd><p>minimumSetCoverPlain Exact minimum-cardinality set cover without toolboxes.</p>
+<p>selectedColumns = minimumSetCoverPlain(coverMatrix) returns column indices
+whose union covers every row with at least one nonzero entry. The objective
+is the standard binary set-cover objective:
+minimize sum(x), subject to coverMatrix*x &gt;= 1 and x is binary.</p>
+</dd></dl>
+
+<dl class="mat function">
 <dt class="sig sig-object mat" id="src.analysis.topology.reactingMoieties.readABRXNFile">
 <span class="sig-name descname"><span class="pre">readABRXNFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">rxnfileName</span></em>, <em class="sig-param"><span class="pre">rxnfileDirectory</span></em>, <em class="sig-param"><span class="pre">options</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/opencobra/cobratoolbox/blob/master/src/analysis/topology/reactingMoieties/readABRXNFile.m"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.analysis.topology.reactingMoieties.readABRXNFile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read atom mappings from a MDL rxn file.</p>
@@ -1010,6 +1020,14 @@ the bond within each metabolite.
 <p>Hadjar Rahou (readBonds)</p>
 </dd></dl>
 
+<dl class="mat function">
+<dt class="sig sig-object mat" id="src.analysis.topology.reactingMoieties.tabulatePlain">
+<span class="sig-name descname"><span class="pre">tabulatePlain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">values</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/opencobra/cobratoolbox/blob/master/src/analysis/topology/reactingMoieties/tabulatePlain.m"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.analysis.topology.reactingMoieties.tabulatePlain" title="Permalink to this definition">¶</a></dt>
+<dd><p>tabulatePlain Count values using base MATLAB.</p>
+<p>tableOut has the same first two columns used by this codebase as MATLAB’s
+tabulate output: unique value and count. The third column is percentage.</p>
+</dd></dl>
+
 </section>
 
 
@@ -1022,10 +1040,10 @@ the bond within each metabolite.
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../graphHypergraphConversion/index.html" class="btn btn-default float-right" title="Graphhypergraphconversion" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../FR/index.html" class="btn btn-default float-right" title="Fr" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../FR/index.html" class="btn btn-default" title="Fr" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../graphHypergraphConversion/index.html" class="btn btn-default" title="Graphhypergraphconversion" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

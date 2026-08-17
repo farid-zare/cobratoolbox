@@ -99,44 +99,26 @@
           
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" id="simple"/>
+    <input type="text" name="q" placeholder="Search docs" id="simple" autocomplete="off"/>
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
-    <script>
-    	var options = {
-
-		url: "_static/json/functions.json",
-
-		getValue: "name",
-
-		list: {
-            onKeyEnterEvent: function(item) {
-                    return "_static/../" + item.website_url
-            },
-            maxNumberOfElements: 25,
-			match: {
-					enabled: true,
-			},
-            sort: {
-			    enabled: true
-		    }
-		},
-	template: {
-	    	type: "custom",
-		    method: function(value, item) {
-                return "<span><a href='_static/../" + item.website_url + "' >" + value + "</a>" + "<a href='_static/../" + item.website_url + "' ><img src='_static/link.svg'/></a></span>";
-		    }
-	    },
-		
-		theme: "square"
-
-	};
-
-	$("#simple").easyAutocomplete(options);
-
-
-    </script>
   </form>
+  <link rel="stylesheet" href="_static/css/siteSearch.css" type="text/css" />
+  
+  <script src="_static/doctools.js"></script>
+  <script src="_static/searchtools.js"></script>
+  <script src="_static/language_data.js"></script>
+  <script src="_static/js/siteSearch.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      SiteSearch.init({
+        inputId: "simple",
+        siteRoot: "./",
+        searchIndexUrl: "searchindex.js",
+        tutorialsIndexUrl: "_static/json/tutorialsSearchIndex.json"
+      });
+    });
+  </script>
 </div>
 
           
@@ -846,7 +828,7 @@ folder <code class="docutils literal notranslate"><span class="pre">/Application
 </div>
 <p>Append the following lines, hit the
 <code class="docutils literal notranslate"><span class="pre">ESC</span></code> key, then save and exit by typing <code class="docutils literal notranslate"><span class="pre">CTRL-X</span></code> and hitting <code class="docutils literal notranslate"><span class="pre">ENTER</span></code>:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">export TOMLAB_PATH=&quot;/opt/tomlab&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">export TOMLAB_PATH="/opt/tomlab"</span>
 </pre></div>
 </div>
 <p>Reload your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>:</p>
@@ -898,11 +880,11 @@ installation instructions and install <code class="docutils literal notranslate"
 <p>Append the following lines, hit the
 <code class="docutils literal notranslate"><span class="pre">ESC</span></code> key, then save and exit by typing <code class="docutils literal notranslate"><span class="pre">CTRL-X</span></code> and hitting <code class="docutils literal notranslate"><span class="pre">ENTER</span></code>.</p>
 <p>On <img src="/cobratoolbox/stable/_static/img/linux.png" height="20px" width="20px" alt="linux">:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">export ILOG_CPLEX_PATH=&quot;/opt/ibm/ILOG/CPLEX_Studio1210&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">export ILOG_CPLEX_PATH="/opt/ibm/ILOG/CPLEX_Studio1210"</span>
 </pre></div>
 </div>
 <p>On <img src="/cobratoolbox/stable/_static/img/apple.png" height="20px" width="20px" alt="macOS">:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">export ILOG_CPLEX_PATH=&quot;/Applications/IBM/ILOG/CPLEX_Studio1210&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">export ILOG_CPLEX_PATH="/Applications/IBM/ILOG/CPLEX_Studio1210"</span>
 </pre></div>
 </div>
 <p>Reload your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>:</p>
@@ -944,10 +926,10 @@ Accept the default path <code class="docutils literal notranslate"><span class="
 </div>
 <p>Append the following lines, hit the
 <code class="docutils literal notranslate"><span class="pre">ESC</span></code> key, then save and exit by typing <code class="docutils literal notranslate"><span class="pre">CTRL-X</span></code> and hitting <code class="docutils literal notranslate"><span class="pre">ENTER</span></code>:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">export GUROBI_HOME=&quot;/opt/gurobi&lt;ver&gt;/linux64&quot;</span>
-<span class="go">export PATH=&quot;${PATH}:${GUROBI_HOME}/bin&quot;</span>
-<span class="go">export LD_LIBRARY_PATH=&quot;${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib&quot;</span>
-<span class="go">export GUROBI_PATH=&quot;${GUROBI_HOME}&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">export GUROBI_HOME="/opt/gurobi&lt;ver&gt;/linux64"</span>
+<span class="go">export PATH="${PATH}:${GUROBI_HOME}/bin"</span>
+<span class="go">export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"</span>
+<span class="go">export GUROBI_PATH="${GUROBI_HOME}"</span>
 </pre></div>
 </div>
 <p>Reload your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>:</p>
@@ -1060,7 +1042,7 @@ command in your terminal</p>
 
 <span class="n">Optimizer</span> <span class="n">started</span><span class="o">.</span>
 <span class="n">Mosek</span> <span class="n">license</span> <span class="n">manager</span><span class="p">:</span> <span class="n">License</span> <span class="n">path</span><span class="p">:</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">mosek</span><span class="o">/</span><span class="n">mosek</span><span class="o">.</span><span class="n">lic</span>
-<span class="n">Mosek</span> <span class="n">license</span> <span class="n">manager</span><span class="p">:</span>  <span class="n">Checkout</span> <span class="n">license</span> <span class="n">feature</span> <span class="s1">&#39;PTS&#39;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">flexlm.</span>
+<span class="n">Mosek</span> <span class="n">license</span> <span class="n">manager</span><span class="p">:</span>  <span class="n">Checkout</span> <span class="n">license</span> <span class="n">feature</span> <span class="s1">'PTS'</span> <span class="kn">from</span><span class="w"> </span><span class="nn">flexlm.</span>
 <span class="n">Mosek</span> <span class="n">license</span> <span class="n">manager</span><span class="p">:</span>  <span class="n">Checkout</span> <span class="n">time</span> <span class="mf">0.01</span><span class="o">.</span> <span class="n">r</span><span class="p">:</span> <span class="mi">0</span> <span class="n">status</span><span class="p">:</span> <span class="mi">0</span>
 <span class="n">Interior</span><span class="o">-</span><span class="n">point</span> <span class="n">optimizer</span> <span class="n">started</span><span class="o">.</span>
 <span class="n">Presolve</span> <span class="n">started</span><span class="o">.</span>

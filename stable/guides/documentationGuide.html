@@ -97,44 +97,26 @@
           
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" id="simple"/>
+    <input type="text" name="q" placeholder="Search docs" id="simple" autocomplete="off"/>
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
-    <script>
-    	var options = {
-
-		url: "../_static/json/functions.json",
-
-		getValue: "name",
-
-		list: {
-            onKeyEnterEvent: function(item) {
-                    return "_static/../" + item.website_url
-            },
-            maxNumberOfElements: 25,
-			match: {
-					enabled: true,
-			},
-            sort: {
-			    enabled: true
-		    }
-		},
-	template: {
-	    	type: "custom",
-		    method: function(value, item) {
-                return "<span><a href='../_static/../" + item.website_url + "' >" + value + "</a>" + "<a href='../_static/../" + item.website_url + "' ><img src='../_static/link.svg'/></a></span>";
-		    }
-	    },
-		
-		theme: "square"
-
-	};
-
-	$("#simple").easyAutocomplete(options);
-
-
-    </script>
   </form>
+  <link rel="stylesheet" href="../_static/css/siteSearch.css" type="text/css" />
+  
+  <script src="../_static/doctools.js"></script>
+  <script src="../_static/searchtools.js"></script>
+  <script src="../_static/language_data.js"></script>
+  <script src="../_static/js/siteSearch.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      SiteSearch.init({
+        inputId: "simple",
+        siteRoot: "../",
+        searchIndexUrl: "../searchindex.js",
+        tutorialsIndexUrl: "../_static/json/tutorialsSearchIndex.json"
+      });
+    });
+  </script>
 </div>
 
           
@@ -244,12 +226,12 @@ percentage sign will be <strong>ignored</strong> in the documentation:</p>
 <p>The function signature must be correctly formatted. Leave a space after
 every comma and before and after the equal sign <code class="docutils literal notranslate"><span class="pre">=</span></code>. A correctly
 formatted function signature reads:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">[output1, output2, output3] = someFunction</span><span class="p">(</span>input1, input2, input3<span class="p">)</span><span class="w"> </span><span class="c">% good practice</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="p">[</span>output1, output2, output3<span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">someFunction</span><span class="p">(</span>input1, input2, input3<span class="p">)</span><span class="w"> </span><span class="c">% good practice</span>
 </pre></div>
 </div>
 <p>A function signature that is not formatted properly throws an <strong>error</strong>
 during the automatic documentation generation:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">[ output1,output2,output3 ]=someFunction</span><span class="p">(</span> input1,input2,input3 <span class="p">)</span><span class="w"> </span><span class="c">% bad practice</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="p">[</span> output1,output2,output3 <span class="p">]=</span><span class="nf">someFunction</span><span class="p">(</span> input1,input2,input3 <span class="p">)</span><span class="w"> </span><span class="c">% bad practice</span>
 </pre></div>
 </div>
 </section>
@@ -258,7 +240,7 @@ during the automatic documentation generation:</p>
 <p>The description of the function is a brief explanation of the purpose of
 the function. The description of the function may extend over several
 lines. However, try to keep the explanations as brief as possible.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">[output1, output2, output3] = someFunction</span><span class="p">(</span>input1, input2, input3<span class="p">)</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="p">[</span>output1, output2, output3<span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">someFunction</span><span class="p">(</span>input1, input2, input3<span class="p">)</span>
 <span class="c">% This is a description of the function that helps to understand how the function works</span>
 <span class="c">% Here the description continues, then we leave an empty comment line</span>
 <span class="c">%</span>
@@ -414,7 +396,7 @@ author as follows:</p>
 <p>A complete example of a function is provided here. Please remember that
 colons, indentations, and keywords are important to guarantee pretty
 formatting.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">[output1, output2] = someFunction</span><span class="p">(</span>input1, input2, input3, input4<span class="p">)</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="p">[</span>output1, output2<span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">someFunction</span><span class="p">(</span>input1, input2, input3, input4<span class="p">)</span>
 <span class="c">% This is a description of the function that helps understand how the function works</span>
 <span class="c">% Here the description continues, then we leave an empty comment line</span>
 <span class="c">%</span>
@@ -442,9 +424,9 @@ formatting.</p>
 <span class="c">% EXAMPLE:</span>
 <span class="c">%</span>
 <span class="c">%    % this could be an example that can be copied from the documentation to MATLAB</span>
-<span class="c">%    [output1, output2] = someFunction(11, &#39;22&#39;, structure, [1;2])</span>
+<span class="c">%    [output1, output2] = someFunction(11, '22', structure, [1;2])</span>
 <span class="c">%    % without optional values</span>
-<span class="c">%    output1 = someFunction(11, &#39;22&#39;)</span>
+<span class="c">%    output1 = someFunction(11, '22')</span>
 <span class="c">%</span>
 <span class="c">% NOTE:</span>
 <span class="c">%    This is a very important information to be highlighted</span>

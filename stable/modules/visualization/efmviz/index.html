@@ -100,44 +100,26 @@
           
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" id="simple"/>
+    <input type="text" name="q" placeholder="Search docs" id="simple" autocomplete="off"/>
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
-    <script>
-    	var options = {
-
-		url: "../../../_static/json/functions.json",
-
-		getValue: "name",
-
-		list: {
-            onKeyEnterEvent: function(item) {
-                    return "_static/../" + item.website_url
-            },
-            maxNumberOfElements: 25,
-			match: {
-					enabled: true,
-			},
-            sort: {
-			    enabled: true
-		    }
-		},
-	template: {
-	    	type: "custom",
-		    method: function(value, item) {
-                return "<span><a href='../../../_static/../" + item.website_url + "' >" + value + "</a>" + "<a href='../../../_static/../" + item.website_url + "' ><img src='../../../_static/link.svg'/></a></span>";
-		    }
-	    },
-		
-		theme: "square"
-
-	};
-
-	$("#simple").easyAutocomplete(options);
-
-
-    </script>
   </form>
+  <link rel="stylesheet" href="../../../_static/css/siteSearch.css" type="text/css" />
+  
+  <script src="../../../_static/doctools.js"></script>
+  <script src="../../../_static/searchtools.js"></script>
+  <script src="../../../_static/language_data.js"></script>
+  <script src="../../../_static/js/siteSearch.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      SiteSearch.init({
+        inputId: "simple",
+        siteRoot: "../../../",
+        searchIndexUrl: "../../../searchindex.js",
+        tutorialsIndexUrl: "../../../_static/json/tutorialsSearchIndex.json"
+      });
+    });
+  </script>
 </div>
 
           
@@ -164,17 +146,17 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Visualization</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Efmviz</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../createMetIntrcNetwork/index.html">Createmetintrcnetwork</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../paint4Net/index.html">Paint4net</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../paint4net/index.html">Paint4net</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../metabolicCartography/index.html">Metaboliccartography</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cellDesigner/index.html">Celldesigner</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../maps/index.html">Maps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../SAMMIM/index.html">Sammim</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../entropicFBA/index.html">Entropicfba</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../upsetPlot/index.html">Upsetplot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../convert/index.html">Convert</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../visualizeEpistasis/index.html">Visualizeepistasis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../EscherMap/index.html">Eschermap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../metabolicCartography/index.html">Metaboliccartography</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cellDesigner/index.html">Celldesigner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../upsetPlot/index.html">Upsetplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../paint4Net/index.html">Paint4net</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SAMMIM/index.html">Sammim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../entropicFBA/index.html">Entropicfba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../convert/index.html">Convert</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../paint4net/index.html">Paint4net</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../maps/index.html">Maps</a></li>
 </ul>
 </li>
 </ul>

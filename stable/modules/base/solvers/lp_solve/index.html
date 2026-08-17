@@ -66,7 +66,7 @@
     <link rel="top" title="The COBRA Toolbox" href="../../../../index.html"/>
         <link rel="up" title="Solvers" href="../index.html"/>
         <link rel="next" title="Varkin" href="../varKin/index.html"/>
-        <link rel="prev" title="Entropicfba" href="../entropicFBA/index.html"/> 
+        <link rel="prev" title="Minos" href="../minos/index.html"/> 
 
   
   <script src="../../../../_static/js/modernizr.min.js"></script>
@@ -100,44 +100,26 @@
           
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" id="simple"/>
+    <input type="text" name="q" placeholder="Search docs" id="simple" autocomplete="off"/>
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
-    <script>
-    	var options = {
-
-		url: "../../../../_static/json/functions.json",
-
-		getValue: "name",
-
-		list: {
-            onKeyEnterEvent: function(item) {
-                    return "_static/../" + item.website_url
-            },
-            maxNumberOfElements: 25,
-			match: {
-					enabled: true,
-			},
-            sort: {
-			    enabled: true
-		    }
-		},
-	template: {
-	    	type: "custom",
-		    method: function(value, item) {
-                return "<span><a href='../../../../_static/../" + item.website_url + "' >" + value + "</a>" + "<a href='../../../../_static/../" + item.website_url + "' ><img src='../../../../_static/link.svg'/></a></span>";
-		    }
-	    },
-		
-		theme: "square"
-
-	};
-
-	$("#simple").easyAutocomplete(options);
-
-
-    </script>
   </form>
+  <link rel="stylesheet" href="../../../../_static/css/siteSearch.css" type="text/css" />
+  
+  <script src="../../../../_static/doctools.js"></script>
+  <script src="../../../../_static/searchtools.js"></script>
+  <script src="../../../../_static/language_data.js"></script>
+  <script src="../../../../_static/js/siteSearch.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      SiteSearch.init({
+        inputId: "simple",
+        siteRoot: "../../../../",
+        searchIndexUrl: "../../../../searchindex.js",
+        tutorialsIndexUrl: "../../../../_static/json/tutorialsSearchIndex.json"
+      });
+    });
+  </script>
 </div>
 
           
@@ -158,32 +140,33 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Functions</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../../analysis/index.html">Analysis</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Base</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../../utilities/index.html">Utilities</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../codeConsistency/index.html">Codeconsistency</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../io/index.html">Io</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../index.html">Solvers</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../param/index.html">Param</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../NLP/index.html">Nlp</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../gurobi/index.html">Gurobi</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../minos/index.html">Minos</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../optarrow/index.html">Optarrow</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../lindo/index.html">Lindo</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../rescale/index.html">Rescale</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../gams/index.html">Gams</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../init/index.html">Init</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cardOpt/index.html">Cardopt</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../entropicFBA/index.html">Entropicfba</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../statusMapping/index.html">Statusmapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../NLP/index.html">Nlp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../minos/index.html">Minos</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Lp_solve</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../varKin/index.html">Varkin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../init/index.html">Init</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../entropicFBA/index.html">Entropicfba</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cardOpt/index.html">Cardopt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gams/index.html">Gams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gurobi/index.html">Gurobi</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../mosek/index.html">Mosek</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../cplex/index.html">Cplex</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../getSetSolver/index.html">Getsetsolver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../lindo/index.html">Lindo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../param/index.html">Param</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../rescale/index.html">Rescale</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cplex/index.html">Cplex</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../ci/index.html">Ci</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../paths/index.html">Paths</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../cobrarrow/index.html">Cobrarrow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../utilities/index.html">Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../paths/index.html">Paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ci/index.html">Ci</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../install/index.html">Install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../io/index.html">Io</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../dataIntegration/index.html">Dataintegration</a></li>
@@ -575,7 +558,7 @@ integer handle to point to a linear program.</p>
         <a href="../varKin/index.html" class="btn btn-default float-right" title="Varkin" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../entropicFBA/index.html" class="btn btn-default" title="Entropicfba" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../minos/index.html" class="btn btn-default" title="Minos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

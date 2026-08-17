@@ -99,44 +99,26 @@
           
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" id="simple"/>
+    <input type="text" name="q" placeholder="Search docs" id="simple" autocomplete="off"/>
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
-    <script>
-    	var options = {
-
-		url: "_static/json/functions.json",
-
-		getValue: "name",
-
-		list: {
-            onKeyEnterEvent: function(item) {
-                    return "_static/../" + item.website_url
-            },
-            maxNumberOfElements: 25,
-			match: {
-					enabled: true,
-			},
-            sort: {
-			    enabled: true
-		    }
-		},
-	template: {
-	    	type: "custom",
-		    method: function(value, item) {
-                return "<span><a href='_static/../" + item.website_url + "' >" + value + "</a>" + "<a href='_static/../" + item.website_url + "' ><img src='_static/link.svg'/></a></span>";
-		    }
-	    },
-		
-		theme: "square"
-
-	};
-
-	$("#simple").easyAutocomplete(options);
-
-
-    </script>
   </form>
+  <link rel="stylesheet" href="_static/css/siteSearch.css" type="text/css" />
+  
+  <script src="_static/doctools.js"></script>
+  <script src="_static/searchtools.js"></script>
+  <script src="_static/language_data.js"></script>
+  <script src="_static/js/siteSearch.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      SiteSearch.init({
+        inputId: "simple",
+        siteRoot: "./",
+        searchIndexUrl: "searchindex.js",
+        tutorialsIndexUrl: "_static/json/tutorialsSearchIndex.json"
+      });
+    });
+  </script>
 </div>
 
           
@@ -433,7 +415,7 @@ git<span class="w"> </span>add<span class="w"> </span>test/<span class="w"> </sp
 </div>
 </li>
 <li><p>Commit your changes:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add new analysis tool for XYZ with tests&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add new analysis tool for XYZ with tests"</span>
 </pre></div>
 </div>
 </li>
@@ -479,7 +461,7 @@ git<span class="w"> </span>add<span class="w"> </span>test/<span class="w"> </sp
 <ol class="arabic">
 <li><p>Make the changes locally.</p></li>
 <li><p>Commit and push them again:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-am<span class="w"> </span><span class="s2">&quot;Address review comments&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-am<span class="w"> </span><span class="s2">"Address review comments"</span>
 git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>develop
 </pre></div>
 </div>
@@ -609,12 +591,12 @@ within MATLAB by typing:</p>
 <p>💡 Check out <a class="reference external" href="https://github.com/opencobra/MATLAB.devTools">MATLAB.devTools</a> – and contribute the smart way!
 The <strong>official documentation</strong> is <a class="reference external" href="https://opencobra.github.io/MATLAB.devTools/">here</a>.</p>
 <p>👉 Contribute to the <code class="docutils literal notranslate"><span class="pre">opencobra/cobratoolbox</span></code> repository by following <a class="reference external" href="https://opencobra.github.io/MATLAB.devTools/stable/contribute.html#the-cobra-toolbox">these instructions</a>:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">contribute</span><span class="p">(</span><span class="s">&#39;opencobra/cobratoolbox&#39;</span><span class="p">);</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">contribute</span><span class="p">(</span><span class="s">'opencobra/cobratoolbox'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>👉 Contribute to the <code class="docutils literal notranslate"><span class="pre">opencobra/COBRA.tutorials</span></code> repository by following <a class="reference external" href="https://opencobra.github.io/MATLAB.devTools/stable/contribute.html#cobra-tutorials">these
 instructions</a>:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">contribute</span><span class="p">(</span><span class="s">&#39;opencobra/COBRA.tutorials&#39;</span><span class="p">);</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">contribute</span><span class="p">(</span><span class="s">'opencobra/COBRA.tutorials'</span><span class="p">);</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -1176,7 +1158,7 @@ contain at most one solver.</p>
 <p class="rubric">Example A: Require Windows for the test</p>
 <p>The same works with <code class="docutils literal notranslate"><span class="pre">needsMac</span></code>, <code class="docutils literal notranslate"><span class="pre">needsLinux</span></code> and <code class="docutils literal notranslate"><span class="pre">needsUnix</span></code>
 instead of <code class="docutils literal notranslate"><span class="pre">needsWindows</span></code>.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">solvers</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">prepareTest</span><span class="p">(</span><span class="s">&#39;needsWindows&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">solvers</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">prepareTest</span><span class="p">(</span><span class="s">'needsWindows'</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
 </pre></div>
 </div>
 <p class="rubric">Example B: Require an LP solver (<code class="docutils literal notranslate"><span class="pre">needsLP</span></code>)</p>
@@ -1187,14 +1169,14 @@ the <code class="docutils literal notranslate"><span class="pre">'useSolversIfAv
 solvers requested will be in the cell array. Otherwise, there will be at
 most one solver (if no solver for the problem is installed, the cell
 array is empty).</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">solvers</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">prepareTest</span><span class="p">(</span><span class="s">&#39;needsLP&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">solvers</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">prepareTest</span><span class="p">(</span><span class="s">'needsLP'</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
 </pre></div>
 </div>
 <p class="rubric">Example C: Use multiple solvers if present</p>
 <p>If multiple solvers are requested. <code class="docutils literal notranslate"><span class="pre">solvers.LP</span></code>, <code class="docutils literal notranslate"><span class="pre">solvers.MILP</span></code> etc
 will contain all those requested solvers that can solve the respective
 problem type and that are installed.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">solvers</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">prepareTest</span><span class="p">(</span><span class="s">&#39;needsLP&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;useSolversIfAvailable&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;ibm_cplex&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;gurobi&#39;</span><span class="p">});</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">solvers</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">prepareTest</span><span class="p">(</span><span class="s">'needsLP'</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="s">'useSolversIfAvailable'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s">'ibm_cplex'</span><span class="p">,</span><span class="w"> </span><span class="s">'gurobi'</span><span class="p">});</span>
 </pre></div>
 </div>
 <p class="rubric">Example D: Require one of a set of solvers</p>
@@ -1204,7 +1186,7 @@ of which the test requires at least one to be present. This option, will
 make the test never be run with any but the solvers specified in the
 supplied list. E.g. if your test only works with <code class="docutils literal notranslate"><span class="pre">gurobi</span></code> or <code class="docutils literal notranslate"><span class="pre">mosek</span></code>
 you would call <code class="docutils literal notranslate"><span class="pre">prepareTest</span></code> as</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">solvers</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">prepareTest</span><span class="p">(</span><span class="s">&#39;requireOneSolverOf&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;ibm_cplex&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;gurobi&#39;</span><span class="p">})</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">solvers</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">prepareTest</span><span class="p">(</span><span class="s">'requireOneSolverOf'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s">'ibm_cplex'</span><span class="p">,</span><span class="w"> </span><span class="s">'gurobi'</span><span class="p">})</span>
 </pre></div>
 </div>
 <p class="rubric">Example E: Exclude a solver</p>
@@ -1214,7 +1196,7 @@ might be advantageous to explicitly exclude that one solver instead of
 defining the list of possible solvers. This can be done with the
 <code class="docutils literal notranslate"><span class="pre">excludeSolvers</span> <span class="pre">parameter</span></code>. Eg. to exclude <code class="docutils literal notranslate"><span class="pre">matlab</span></code> and <code class="docutils literal notranslate"><span class="pre">lp_solve</span></code>
 you would use the following command:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">solvers</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">prepareTest</span><span class="p">(</span><span class="s">&#39;excludeSolvers&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;matlab&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;lp_solve&#39;</span><span class="p">})</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">solvers</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">prepareTest</span><span class="p">(</span><span class="s">'excludeSolvers'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s">'matlab'</span><span class="p">,</span><span class="w"> </span><span class="s">'lp_solve'</span><span class="p">})</span>
 </pre></div>
 </div>
 <p class="rubric">Example F: Require multiple solvers</p>
@@ -1222,14 +1204,14 @@ you would use the following command:</p>
 require multiple solvers for a test use the <code class="docutils literal notranslate"><span class="pre">requiredSolvers</span></code> parameters.
 E.g. if your function requires <code class="docutils literal notranslate"><span class="pre">ibm_cplex</span></code> and <code class="docutils literal notranslate"><span class="pre">gurobi</span></code> use the following
 call:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">solvers</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">prepareTest</span><span class="p">(</span><span class="s">&#39;requiredSolvers&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;ibm_cplex&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;gurobi&#39;</span><span class="p">})</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">solvers</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">prepareTest</span><span class="p">(</span><span class="s">'requiredSolvers'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s">'ibm_cplex'</span><span class="p">,</span><span class="w"> </span><span class="s">'gurobi'</span><span class="p">})</span>
 </pre></div>
 </div>
 <p class="rubric">Example G: Require a specific MATLAB toolbox</p>
 <p>The toolbox IDs are specified as those used in <code class="docutils literal notranslate"><span class="pre">license('test',</span>
 <span class="pre">'toolboxName')</span></code>.  The following example requires the statistics toolbox
 to be present.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">solvers</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">prepareTest</span><span class="p">(</span><span class="s">&#39;requiredToolboxes&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;statistics_toolbox&#39;</span><span class="p">})</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">solvers</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">prepareTest</span><span class="p">(</span><span class="s">'requiredToolboxes'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s">'statistics_toolbox'</span><span class="p">})</span>
 </pre></div>
 </div>
 <p class="rubric">Example H: Multiple requirements</p>
@@ -1237,13 +1219,13 @@ to be present.</p>
 test them all in the same call. To keep the code readable, first define
 the requirements and then pass them in.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% define required toolboxes</span>
-<span class="n">requiredToolboxes</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;bioinformatics_toolbox&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;optimization_toolbox&#39;</span><span class="p">};</span>
+<span class="n">requiredToolboxes</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="s">'bioinformatics_toolbox'</span><span class="p">,</span><span class="w"> </span><span class="s">'optimization_toolbox'</span><span class="p">};</span>
 
 <span class="c">% define the required solvers (in this case matlab and dqqMinos)</span>
-<span class="n">requiredSolvers</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;dqqMinos&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;matlab&#39;</span><span class="p">};</span>
+<span class="n">requiredSolvers</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="s">'dqqMinos'</span><span class="p">,</span><span class="w"> </span><span class="s">'matlab'</span><span class="p">};</span>
 
 <span class="c">% check if the specified requirements are fullfilled (toolboxes, solvers in thhis example, a unix OS).</span>
-<span class="n">solversPkgs</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">prepareTest</span><span class="p">(</span><span class="s">&#39;requiredSolvers&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">requiredSolvers</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;requiredToolboxes&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">requiredToolboxes</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;needsUnix&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<span class="n">solversPkgs</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">prepareTest</span><span class="p">(</span><span class="s">'requiredSolvers'</span><span class="p">,</span><span class="w"> </span><span class="n">requiredSolvers</span><span class="p">,</span><span class="w"> </span><span class="s">'requiredToolboxes'</span><span class="p">,</span><span class="w"> </span><span class="n">requiredToolboxes</span><span class="p">,</span><span class="w"> </span><span class="s">'needsUnix'</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
 </pre></div>
 </div>
 </section>
@@ -1286,19 +1268,19 @@ logical condition.</p>
 <p>If you want to test whether your <code class="docutils literal notranslate"><span class="pre">function1</span></code> correctly throws an
 <strong>error</strong> message, you can test as follows:</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Case 5: test with 2 input and 1 output arguments (2nd input argument is of wrong dimension)</span>
-<span class="c">% There are two options. If a particular error message is to be tested (here, &#39;Input2 has the wrong dimension&#39;):</span>
-<span class="nb">assert</span><span class="p">(</span><span class="n">verifyCobraFunctionError</span><span class="p">(</span><span class="s">&#39;function1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;inputs&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="n">input1</span><span class="p">,</span><span class="w"> </span><span class="n">input2</span><span class="o">&#39;</span><span class="p">},</span><span class="w"> </span><span class="s">&#39;testMessage&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Input2 has the wrong dimension&#39;</span><span class="p">));</span>
+<span class="c">% There are two options. If a particular error message is to be tested (here, 'Input2 has the wrong dimension'):</span>
+<span class="nb">assert</span><span class="p">(</span><span class="n">verifyCobraFunctionError</span><span class="p">(</span><span class="s">'function1'</span><span class="p">,</span><span class="w"> </span><span class="s">'inputs'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="n">input1</span><span class="p">,</span><span class="w"> </span><span class="n">input2</span><span class="o">'</span><span class="p">},</span><span class="w"> </span><span class="s">'testMessage'</span><span class="p">,</span><span class="w"> </span><span class="s">'Input2 has the wrong dimension'</span><span class="p">));</span>
 
 <span class="c">% If the aim is to test, that the function throws an error at all</span>
-<span class="nb">assert</span><span class="p">(</span><span class="n">verifyCobraFunctionError</span><span class="p">(</span><span class="s">&#39;function1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;inputs&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="n">input1</span><span class="p">,</span><span class="w"> </span><span class="n">input2</span><span class="o">&#39;</span><span class="p">}));</span>
+<span class="nb">assert</span><span class="p">(</span><span class="n">verifyCobraFunctionError</span><span class="p">(</span><span class="s">'function1'</span><span class="p">,</span><span class="w"> </span><span class="s">'inputs'</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="n">input1</span><span class="p">,</span><span class="w"> </span><span class="n">input2</span><span class="o">'</span><span class="p">}));</span>
 </pre></div>
 </div>
 <p>If you want to test whether your <code class="docutils literal notranslate"><span class="pre">function1</span></code> correctly throws a
 <strong>warning</strong> message, you can test as follows:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">warning</span><span class="p">(</span><span class="s">&#39;off&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;all&#39;</span><span class="p">)</span>
-<span class="w">    </span><span class="n">output1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">function1</span><span class="p">(</span><span class="n">input1</span><span class="p">,</span><span class="w"> </span><span class="n">input2</span><span class="o">&#39;</span><span class="p">);</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">warning</span><span class="p">(</span><span class="s">'off'</span><span class="p">,</span><span class="w"> </span><span class="s">'all'</span><span class="p">)</span>
+<span class="w">    </span><span class="n">output1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">function1</span><span class="p">(</span><span class="n">input1</span><span class="p">,</span><span class="w"> </span><span class="n">input2</span><span class="o">'</span><span class="p">);</span>
 <span class="w">    </span><span class="nb">assert</span><span class="p">(</span><span class="nb">length</span><span class="p">(</span><span class="nb">lastwarn</span><span class="p">())</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="nb">warning</span><span class="p">(</span><span class="s">&#39;on&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;all&#39;</span><span class="p">)</span>
+<span class="nb">warning</span><span class="p">(</span><span class="s">'on'</span><span class="p">,</span><span class="w"> </span><span class="s">'all'</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Note that this allows the error message to be thrown without failing the
@@ -1324,7 +1306,7 @@ The following sections shall be included in a test file:</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">global</span><span class="w"> </span><span class="n">CBTDIR</span>
 
 <span class="c">% save the current path and switch to the test path</span>
-<span class="n">currentDir</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cd</span><span class="p">(</span><span class="nb">fileparts</span><span class="p">(</span><span class="nb">which</span><span class="p">(</span><span class="s">&#39;fileName&#39;</span><span class="p">)));</span>
+<span class="n">currentDir</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">cd</span><span class="p">(</span><span class="nb">fileparts</span><span class="p">(</span><span class="nb">which</span><span class="p">(</span><span class="s">'fileName'</span><span class="p">)));</span>
 
 <span class="c">% get the path of the test folder</span>
 <span class="n">testPath</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">pwd</span><span class="p">;</span>
@@ -1335,16 +1317,16 @@ The following sections shall be included in a test file:</p>
 <span class="n">tol</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1e-8</span><span class="p">;</span>
 
 <span class="c">% define the solver packages to be used to run this test</span>
-<span class="n">solvers</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">prepareTest</span><span class="p">(</span><span class="s">&#39;needsLP&#39;</span><span class="p">,</span><span class="nb">true</span><span class="p">);</span>
+<span class="n">solvers</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">prepareTest</span><span class="p">(</span><span class="s">'needsLP'</span><span class="p">,</span><span class="nb">true</span><span class="p">);</span>
 </pre></div>
 </div>
 <p class="rubric">4. Load a model and/or reference data</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% load a model distributed by the toolbox</span>
-<span class="n">getDistributedModel</span><span class="p">(</span><span class="s">&#39;testModel.mat&#39;</span><span class="p">);</span>
+<span class="n">getDistributedModel</span><span class="p">(</span><span class="s">'testModel.mat'</span><span class="p">);</span>
 <span class="c">% load a particular model for this test:</span>
-<span class="n">readCbModel</span><span class="p">([</span><span class="n">testPath</span><span class="w"> </span><span class="nb">filesep</span><span class="w"> </span><span class="s">&#39;SpecificModel.mat&#39;</span><span class="p">])</span>
+<span class="n">readCbModel</span><span class="p">([</span><span class="n">testPath</span><span class="w"> </span><span class="nb">filesep</span><span class="w"> </span><span class="s">'SpecificModel.mat'</span><span class="p">])</span>
 <span class="c">% load reference data</span>
-<span class="nb">load</span><span class="p">([</span><span class="n">testPath</span><span class="w"> </span><span class="nb">filesep</span><span class="w"> </span><span class="s">&#39;testData_functionToBeTested.mat&#39;</span><span class="p">]);</span>
+<span class="nb">load</span><span class="p">([</span><span class="n">testPath</span><span class="w"> </span><span class="nb">filesep</span><span class="w"> </span><span class="s">'testData_functionToBeTested.mat'</span><span class="p">]);</span>
 </pre></div>
 </div>
 <p>Please only load <em>small</em> models, i.e. less than <code class="docutils literal notranslate"><span class="pre">100</span></code> reactions. If
@@ -1360,7 +1342,7 @@ online, please make a pull request with the URL entry to the
 <p>This is only necessary for tests that test a function that runs in
 parallel.</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% create a parallel pool</span>
-<span class="n">poolobj</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">gcp</span><span class="p">(</span><span class="s">&#39;nocreate&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% if no pool, do not create new one.</span>
+<span class="n">poolobj</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">gcp</span><span class="p">(</span><span class="s">'nocreate'</span><span class="p">);</span><span class="w"> </span><span class="c">% if no pool, do not create new one.</span>
 <span class="k">if</span><span class="w"> </span><span class="nb">isempty</span><span class="p">(</span><span class="n">poolobj</span><span class="p">)</span>
 <span class="w">    </span><span class="n">parpool</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% launch 2 workers</span>
 <span class="k">end</span>
@@ -1375,24 +1357,24 @@ parallel.</p>
 <p class="rubric">6. Body of test</p>
 <p>The test itself. If the solvers are essential for the functionality tested in this test use:</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">solvers</span><span class="p">.</span><span class="n">LP</span><span class="p">)</span>
-<span class="w">    </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39; -- Running &lt;testFile&gt; using the solver interface: %s ... &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">solvers</span><span class="p">.</span><span class="n">LP</span><span class="p">{</span><span class="n">k</span><span class="p">});</span>
+<span class="w">    </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">' -- Running &lt;testFile&gt; using the solver interface: %s ... '</span><span class="p">,</span><span class="w"> </span><span class="n">solvers</span><span class="p">.</span><span class="n">LP</span><span class="p">{</span><span class="n">k</span><span class="p">});</span>
 
-<span class="w">    </span><span class="n">solverLPOK</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">changeCobraSolver</span><span class="p">(</span><span class="n">solvers</span><span class="p">.</span><span class="n">LP</span><span class="p">{</span><span class="n">k</span><span class="p">},</span><span class="w"> </span><span class="s">&#39;LP&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">solverLPOK</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">changeCobraSolver</span><span class="p">(</span><span class="n">solvers</span><span class="p">.</span><span class="n">LP</span><span class="p">{</span><span class="n">k</span><span class="p">},</span><span class="w"> </span><span class="s">'LP'</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 <span class="w">    </span><span class="c">% &lt;your test goes here&gt;</span>
 
 <span class="w">    </span><span class="c">% output a success message</span>
-<span class="w">    </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;Done.\n&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">'Done.\n'</span><span class="p">);</span>
 <span class="k">end</span>
 </pre></div>
 </div>
 <p>This is important, as the continuous integration system will run other solvers on the test in its nightly build. That way,
 we can determine solvers that work with a specific method, and those that do not (potentially due to precision problems or other issues).
 If the solvers are only used to test the outputs of a function for correctness, use:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">solverLPOK</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">changeCobraSolver</span><span class="p">(</span><span class="n">solvers</span><span class="p">.</span><span class="n">LP</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span><span class="w"> </span><span class="s">&#39;LP&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">solverLPOK</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">changeCobraSolver</span><span class="p">(</span><span class="n">solvers</span><span class="p">.</span><span class="n">LP</span><span class="p">{</span><span class="mi">1</span><span class="p">},</span><span class="w"> </span><span class="s">'LP'</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 <span class="c">% &lt;your test goes here&gt;</span>
 
 <span class="c">% output a success message</span>
-<span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;Done.\n&#39;</span><span class="p">);</span>
+<span class="nb">fprintf</span><span class="p">(</span><span class="s">'Done.\n'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p class="rubric">7. Return to the original directory</p>
@@ -1499,10 +1481,10 @@ repetition (e.g. re-validating a solver-independent result across every installe
 solver) is skipped. To restore the previous, complete behaviour, select full mode.</p>
 <p>Selecting the mode:</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% force the complete suite for this shell</span>
-<span class="nb">setenv</span><span class="p">(</span><span class="s">&#39;COBRA_TEST_MODE&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;full&#39;</span><span class="p">);</span><span class="w">   </span><span class="c">% or &#39;fast&#39;</span>
+<span class="nb">setenv</span><span class="p">(</span><span class="s">'COBRA_TEST_MODE'</span><span class="p">,</span><span class="w"> </span><span class="s">'full'</span><span class="p">);</span><span class="w">   </span><span class="c">% or 'fast'</span>
 
 <span class="c">% or, within MATLAB, via the global</span>
-<span class="k">global</span><span class="w"> </span><span class="n">CBT_TEST_MODE</span><span class="p">;</span><span class="w"> </span><span class="n">CBT_TEST_MODE</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;full&#39;</span><span class="p">;</span>
+<span class="k">global</span><span class="w"> </span><span class="n">CBT_TEST_MODE</span><span class="p">;</span><span class="w"> </span><span class="n">CBT_TEST_MODE</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">'full'</span><span class="p">;</span>
 </pre></div>
 </div>
 <p><strong>Continuous integration always runs full mode</strong> (<code class="docutils literal notranslate"><span class="pre">COBRA_CI=1</span></code> forces <code class="docutils literal notranslate"><span class="pre">full</span></code>),
@@ -1516,7 +1498,7 @@ requested solvers in both modes.</p>
 <section id="profiling-report">
 <h3>Profiling report<a class="headerlink" href="#profiling-report" title="Permalink to this heading">¶</a></h3>
 <p>To see where suite time goes, enable the opt-in profiling report (off by default):</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">setenv</span><span class="p">(</span><span class="s">&#39;COBRA_PERF&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;1&#39;</span><span class="p">);</span><span class="w">   </span><span class="c">% then run testAll</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">setenv</span><span class="p">(</span><span class="s">'COBRA_PERF'</span><span class="p">,</span><span class="w"> </span><span class="s">'1'</span><span class="p">);</span><span class="w">   </span><span class="c">% then run testAll</span>
 </pre></div>
 </div>
 <p>It writes a ranked per-test timing table (<code class="docutils literal notranslate"><span class="pre">test/performance/testTiming.csv</span></code>) and a
@@ -1568,12 +1550,12 @@ percentage sign will be <strong>ignored</strong> in the documentation:</p>
 <p>The function signature must be correctly formatted. Leave a space after
 every comma and before and after the equal sign <code class="docutils literal notranslate"><span class="pre">=</span></code>. A correctly
 formatted function signature reads:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">[output1, output2, output3] = someFunction</span><span class="p">(</span>input1, input2, input3<span class="p">)</span><span class="w"> </span><span class="c">% good practice</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="p">[</span>output1, output2, output3<span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">someFunction</span><span class="p">(</span>input1, input2, input3<span class="p">)</span><span class="w"> </span><span class="c">% good practice</span>
 </pre></div>
 </div>
 <p>A function signature that is not formatted properly throws an <strong>error</strong>
 during the automatic documentation generation:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">[ output1,output2,output3 ]=someFunction</span><span class="p">(</span> input1,input2,input3 <span class="p">)</span><span class="w"> </span><span class="c">% bad practice</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="p">[</span> output1,output2,output3 <span class="p">]=</span><span class="nf">someFunction</span><span class="p">(</span> input1,input2,input3 <span class="p">)</span><span class="w"> </span><span class="c">% bad practice</span>
 </pre></div>
 </div>
 </section>
@@ -1582,7 +1564,7 @@ during the automatic documentation generation:</p>
 <p>The description of the function is a brief explanation of the purpose of
 the function. The description of the function may extend over several
 lines. However, try to keep the explanations as brief as possible.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">[output1, output2, output3] = someFunction</span><span class="p">(</span>input1, input2, input3<span class="p">)</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="p">[</span>output1, output2, output3<span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">someFunction</span><span class="p">(</span>input1, input2, input3<span class="p">)</span>
 <span class="c">% This is a description of the function that helps to understand how the function works</span>
 <span class="c">% Here the description continues, then we leave an empty comment line</span>
 <span class="c">%</span>
@@ -1738,7 +1720,7 @@ author as follows:</p>
 <p>A complete example of a function is provided here. Please remember that
 colons, indentations, and keywords are important to guarantee pretty
 formatting.</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">[output1, output2] = someFunction</span><span class="p">(</span>input1, input2, input3, input4<span class="p">)</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="p">[</span>output1, output2<span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">someFunction</span><span class="p">(</span>input1, input2, input3, input4<span class="p">)</span>
 <span class="c">% This is a description of the function that helps understand how the function works</span>
 <span class="c">% Here the description continues, then we leave an empty comment line</span>
 <span class="c">%</span>
@@ -1766,9 +1748,9 @@ formatting.</p>
 <span class="c">% EXAMPLE:</span>
 <span class="c">%</span>
 <span class="c">%    % this could be an example that can be copied from the documentation to MATLAB</span>
-<span class="c">%    [output1, output2] = someFunction(11, &#39;22&#39;, structure, [1;2])</span>
+<span class="c">%    [output1, output2] = someFunction(11, '22', structure, [1;2])</span>
 <span class="c">%    % without optional values</span>
-<span class="c">%    output1 = someFunction(11, &#39;22&#39;)</span>
+<span class="c">%    output1 = someFunction(11, '22')</span>
 <span class="c">%</span>
 <span class="c">% NOTE:</span>
 <span class="c">%    This is a very important information to be highlighted</span>
@@ -1836,9 +1818,9 @@ use relative paths, where possible</p></li>
 is clear that the sentence is separated through different lines,
 e.g.:</p></li>
 </ul>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span>function [parameter1, parameter2, parameter3, parameter4] = functionManyParameters...
-          (InputParameter1, InputParameter2, InputParameter3, InputParameter3, ...
-           InputParameter4, InputParameter5)
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="p">[</span>parameter1, parameter2, parameter3, parameter4<span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">functionManyParameters</span><span class="c">...</span>
+<span class="w">          </span><span class="p">(</span>InputParameter1, InputParameter2, InputParameter3, InputParameter3, <span class="c">...</span>
+           InputParameter4, InputParameter5<span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">

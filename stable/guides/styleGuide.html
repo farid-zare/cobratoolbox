@@ -97,44 +97,26 @@
           
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" id="simple"/>
+    <input type="text" name="q" placeholder="Search docs" id="simple" autocomplete="off"/>
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
-    <script>
-    	var options = {
-
-		url: "../_static/json/functions.json",
-
-		getValue: "name",
-
-		list: {
-            onKeyEnterEvent: function(item) {
-                    return "_static/../" + item.website_url
-            },
-            maxNumberOfElements: 25,
-			match: {
-					enabled: true,
-			},
-            sort: {
-			    enabled: true
-		    }
-		},
-	template: {
-	    	type: "custom",
-		    method: function(value, item) {
-                return "<span><a href='../_static/../" + item.website_url + "' >" + value + "</a>" + "<a href='../_static/../" + item.website_url + "' ><img src='../_static/link.svg'/></a></span>";
-		    }
-	    },
-		
-		theme: "square"
-
-	};
-
-	$("#simple").easyAutocomplete(options);
-
-
-    </script>
   </form>
+  <link rel="stylesheet" href="../_static/css/siteSearch.css" type="text/css" />
+  
+  <script src="../_static/doctools.js"></script>
+  <script src="../_static/searchtools.js"></script>
+  <script src="../_static/language_data.js"></script>
+  <script src="../_static/js/siteSearch.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      SiteSearch.init({
+        inputId: "simple",
+        siteRoot: "../",
+        searchIndexUrl: "../searchindex.js",
+        tutorialsIndexUrl: "../_static/json/tutorialsSearchIndex.json"
+      });
+    });
+  </script>
 </div>
 
           
@@ -256,9 +238,9 @@ use relative paths, where possible</p></li>
 is clear that the sentence is separated through different lines,
 e.g.:</p></li>
 </ul>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span>function [parameter1, parameter2, parameter3, parameter4] = functionManyParameters...
-          (InputParameter1, InputParameter2, InputParameter3, InputParameter3, ...
-           InputParameter4, InputParameter5)
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="p">[</span>parameter1, parameter2, parameter3, parameter4<span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">functionManyParameters</span><span class="c">...</span>
+<span class="w">          </span><span class="p">(</span>InputParameter1, InputParameter2, InputParameter3, InputParameter3, <span class="c">...</span>
+           InputParameter4, InputParameter5<span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">

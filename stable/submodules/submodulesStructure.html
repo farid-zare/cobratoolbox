@@ -97,44 +97,26 @@
           
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" id="simple"/>
+    <input type="text" name="q" placeholder="Search docs" id="simple" autocomplete="off"/>
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
-    <script>
-    	var options = {
-
-		url: "../_static/json/functions.json",
-
-		getValue: "name",
-
-		list: {
-            onKeyEnterEvent: function(item) {
-                    return "_static/../" + item.website_url
-            },
-            maxNumberOfElements: 25,
-			match: {
-					enabled: true,
-			},
-            sort: {
-			    enabled: true
-		    }
-		},
-	template: {
-	    	type: "custom",
-		    method: function(value, item) {
-                return "<span><a href='../_static/../" + item.website_url + "' >" + value + "</a>" + "<a href='../_static/../" + item.website_url + "' ><img src='../_static/link.svg'/></a></span>";
-		    }
-	    },
-		
-		theme: "square"
-
-	};
-
-	$("#simple").easyAutocomplete(options);
-
-
-    </script>
   </form>
+  <link rel="stylesheet" href="../_static/css/siteSearch.css" type="text/css" />
+  
+  <script src="../_static/doctools.js"></script>
+  <script src="../_static/searchtools.js"></script>
+  <script src="../_static/language_data.js"></script>
+  <script src="../_static/js/siteSearch.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      SiteSearch.init({
+        inputId: "simple",
+        siteRoot: "../",
+        searchIndexUrl: "../searchindex.js",
+        tutorialsIndexUrl: "../_static/json/tutorialsSearchIndex.json"
+      });
+    });
+  </script>
 </div>
 
           
@@ -425,7 +407,7 @@ When a contributor pushes a new or updated <code class="docutils literal notrans
 <ol class="arabic" start="8">
 <li><p>Once you are done making changes, add the files to your branch (<code class="docutils literal notranslate"><span class="pre">tutorial_&lt;yourFile&gt;</span></code> refers to the tutorial name). Make sure to add the <code class="docutils literal notranslate"><span class="pre">.mlx</span></code> format of the tutorial.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git add tutorial_&lt;yourFile&gt;.mlx</span>
-<span class="go">git commit -m &quot;Changes to tutorial_&lt;yourFile&gt;&quot;</span>
+<span class="go">git commit -m "Changes to tutorial_&lt;yourFile&gt;"</span>
 </pre></div>
 </div>
 </li>

@@ -97,44 +97,26 @@
           
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" id="simple"/>
+    <input type="text" name="q" placeholder="Search docs" id="simple" autocomplete="off"/>
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
-    <script>
-    	var options = {
-
-		url: "../_static/json/functions.json",
-
-		getValue: "name",
-
-		list: {
-            onKeyEnterEvent: function(item) {
-                    return "_static/../" + item.website_url
-            },
-            maxNumberOfElements: 25,
-			match: {
-					enabled: true,
-			},
-            sort: {
-			    enabled: true
-		    }
-		},
-	template: {
-	    	type: "custom",
-		    method: function(value, item) {
-                return "<span><a href='../_static/../" + item.website_url + "' >" + value + "</a>" + "<a href='../_static/../" + item.website_url + "' ><img src='../_static/link.svg'/></a></span>";
-		    }
-	    },
-		
-		theme: "square"
-
-	};
-
-	$("#simple").easyAutocomplete(options);
-
-
-    </script>
   </form>
+  <link rel="stylesheet" href="../_static/css/siteSearch.css" type="text/css" />
+  
+  <script src="../_static/doctools.js"></script>
+  <script src="../_static/searchtools.js"></script>
+  <script src="../_static/language_data.js"></script>
+  <script src="../_static/js/siteSearch.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      SiteSearch.init({
+        inputId: "simple",
+        siteRoot: "../",
+        searchIndexUrl: "../searchindex.js",
+        tutorialsIndexUrl: "../_static/json/tutorialsSearchIndex.json"
+      });
+    });
+  </script>
 </div>
 
           
@@ -366,7 +348,7 @@ git<span class="w"> </span>add<span class="w"> </span>test/<span class="w"> </sp
 </div>
 </li>
 <li><p>Commit your changes:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add new analysis tool for XYZ with tests&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add new analysis tool for XYZ with tests"</span>
 </pre></div>
 </div>
 </li>
@@ -412,7 +394,7 @@ git<span class="w"> </span>add<span class="w"> </span>test/<span class="w"> </sp
 <ol class="arabic">
 <li><p>Make the changes locally.</p></li>
 <li><p>Commit and push them again:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-am<span class="w"> </span><span class="s2">&quot;Address review comments&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-am<span class="w"> </span><span class="s2">"Address review comments"</span>
 git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>develop
 </pre></div>
 </div>

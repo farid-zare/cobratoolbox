@@ -66,7 +66,7 @@
     <link rel="top" title="The COBRA Toolbox" href="../../../index.html"/>
         <link rel="up" title="Visualization" href="../index.html"/>
         <link rel="next" title="Paint4net sample pack" href="Paint4Net%20sample%20pack/index.html"/>
-        <link rel="prev" title="Draw_by_rxn" href="../paint4Net/Draw_by_rxn/index.html"/> 
+        <link rel="prev" title="Convert" href="../convert/index.html"/> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -100,44 +100,26 @@
           
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" id="simple"/>
+    <input type="text" name="q" placeholder="Search docs" id="simple" autocomplete="off"/>
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
-    <script>
-    	var options = {
-
-		url: "../../../_static/json/functions.json",
-
-		getValue: "name",
-
-		list: {
-            onKeyEnterEvent: function(item) {
-                    return "_static/../" + item.website_url
-            },
-            maxNumberOfElements: 25,
-			match: {
-					enabled: true,
-			},
-            sort: {
-			    enabled: true
-		    }
-		},
-	template: {
-	    	type: "custom",
-		    method: function(value, item) {
-                return "<span><a href='../../../_static/../" + item.website_url + "' >" + value + "</a>" + "<a href='../../../_static/../" + item.website_url + "' ><img src='../../../_static/link.svg'/></a></span>";
-		    }
-	    },
-		
-		theme: "square"
-
-	};
-
-	$("#simple").easyAutocomplete(options);
-
-
-    </script>
   </form>
+  <link rel="stylesheet" href="../../../_static/css/siteSearch.css" type="text/css" />
+  
+  <script src="../../../_static/doctools.js"></script>
+  <script src="../../../_static/searchtools.js"></script>
+  <script src="../../../_static/language_data.js"></script>
+  <script src="../../../_static/js/siteSearch.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      SiteSearch.init({
+        inputId: "simple",
+        siteRoot: "../../../",
+        searchIndexUrl: "../../../searchindex.js",
+        tutorialsIndexUrl: "../../../_static/json/tutorialsSearchIndex.json"
+      });
+    });
+  </script>
 </div>
 
           
@@ -164,21 +146,21 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Visualization</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../efmviz/index.html">Efmviz</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../createMetIntrcNetwork/index.html">Createmetintrcnetwork</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../visualizeEpistasis/index.html">Visualizeepistasis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EscherMap/index.html">Eschermap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../metabolicCartography/index.html">Metaboliccartography</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cellDesigner/index.html">Celldesigner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../upsetPlot/index.html">Upsetplot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../paint4Net/index.html">Paint4net</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SAMMIM/index.html">Sammim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../entropicFBA/index.html">Entropicfba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../convert/index.html">Convert</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Paint4net</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="Paint4Net%20sample%20pack/index.html">Paint4net sample pack</a></li>
 <li class="toctree-l4"><a class="reference internal" href="bio_paint4Net/index.html">Bio_paint4net</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../metabolicCartography/index.html">Metaboliccartography</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../cellDesigner/index.html">Celldesigner</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../maps/index.html">Maps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../SAMMIM/index.html">Sammim</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../entropicFBA/index.html">Entropicfba</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../upsetPlot/index.html">Upsetplot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../convert/index.html">Convert</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../visualizeEpistasis/index.html">Visualizeepistasis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../EscherMap/index.html">Eschermap</a></li>
 </ul>
 </li>
 </ul>
@@ -241,8 +223,8 @@
 <li class="toctree-l1"><a class="reference internal" href="Paint4Net%20sample%20pack/index.html">Paint4net sample pack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bio_paint4Net/index.html">Bio_paint4net</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="bio_paint4Net/Paint4Net%20sample%20pack/index.html">Paint4net sample pack</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bio_paint4Net/bio_draw_by_rxn/index.html">Bio_draw_by_rxn</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bio_paint4Net/bio_draw_by_met/index.html">Bio_draw_by_met</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bio_paint4Net/bio_draw_by_rxn/index.html">Bio_draw_by_rxn</a></li>
 </ul>
 </li>
 </ul>
@@ -262,7 +244,7 @@
         <a href="Paint4Net%20sample%20pack/index.html" class="btn btn-default float-right" title="Paint4net sample pack" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../paint4Net/Draw_by_rxn/index.html" class="btn btn-default" title="Draw_by_rxn" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../convert/index.html" class="btn btn-default" title="Convert" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
