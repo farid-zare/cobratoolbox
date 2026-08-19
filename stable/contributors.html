@@ -43,48 +43,26 @@
             <img alt="cobratoolbox logo" class="logo" src="/cobratoolbox/stable/_static/img/logo.png"/>
 </a>
 <h1>The COBRA Toolbox</h1>
-<div role="search">
-<form action="search.html" class="wy-form" id="rtd-search-form" method="get">
-<input id="simple" name="q" placeholder="Search docs" type="text"/>
+<div role="search"><form action="search.html" class="wy-form" id="rtd-search-form" method="get">
+<input autocomplete="off" id="simple" name="q" placeholder="Search docs" type="text"/>
 <input name="check_keywords" type="hidden" value="yes"/>
 <input name="area" type="hidden" value="default"/>
-<script>
-    	var options = {
-
-		url: "_static/json/functions.json",
-
-		getValue: "name",
-
-		list: {
-            onKeyEnterEvent: function(item) {
-                    return "_static/../" + item.website_url
-            },
-            maxNumberOfElements: 25,
-			match: {
-					enabled: true,
-			},
-            sort: {
-			    enabled: true
-		    }
-		},
-
-    	template: {
-	    	type: "custom",
-		    method: function(value, item) {
-                return "<span><a href='search.html?q=" + item.name + "&check_keywords=yes&area=default'>" + value + "</a>" + "<a href='_static/../" + item.website_url + "' ><img src='_static/link.svg'/></a></span>";
-		    }
-	    },
-
-		theme: "square"
-
-	};
-
-	$("#simple").easyAutocomplete(options);
-
-
-    </script>
 </form>
-</div>
+<link href="_static/css/siteSearch.css" rel="stylesheet" type="text/css"/>
+<script src="_static/doctools.js"></script>
+<script src="_static/searchtools.js"></script>
+<script src="_static/language_data.js"></script>
+<script src="_static/js/siteSearch.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      SiteSearch.init({
+        inputId: "simple",
+        siteRoot: "./",
+        searchIndexUrl: "searchindex.js",
+        tutorialsIndexUrl: "_static/json/tutorialsSearchIndex.json"
+      });
+    });
+  </script></div>
 </div>
 <div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>

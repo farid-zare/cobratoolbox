@@ -89,48 +89,26 @@
           
 
           
-<div role="search">
-  <form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
-    <input id="simple" name="q" placeholder="Search docs" type="text"/>
+<div role="search"><form action="../search.html" class="wy-form" id="rtd-search-form" method="get">
+    <input autocomplete="off" id="simple" name="q" placeholder="Search docs" type="text"/>
     <input name="check_keywords" type="hidden" value="yes"/>
     <input name="area" type="hidden" value="default"/>
-    <script>
-    	var options = {
-
-		url: "../_static/json/functions.json",
-
-		getValue: "name",
-
-		list: {
-            onKeyEnterEvent: function(item) {
-                    return "_static/../" + item.website_url
-            },
-            maxNumberOfElements: 25,
-			match: {
-					enabled: true,
-			},
-            sort: {
-			    enabled: true
-		    }
-		},
-
-    	template: {
-	    	type: "custom",
-		    method: function(value, item) {
-                return "<span><a href='../_static/../" + item.website_url + "' >" + value + "</a>" + "<a href='../_static/../" + item.website_url + "' ><img src='../_static/link.svg'/></a></span>";
-		    }
-	    },
-
-		theme: "square"
-
-	};
-
-	$("#simple").easyAutocomplete(options);
-
-
-    </script>
   </form>
-</div>
+  <link href="../_static/css/siteSearch.css" rel="stylesheet" type="text/css"/>
+  <script src="../_static/doctools.js"></script>
+  <script src="../_static/searchtools.js"></script>
+  <script src="../_static/language_data.js"></script>
+  <script src="../_static/js/siteSearch.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      SiteSearch.init({
+        inputId: "simple",
+        siteRoot: "../",
+        searchIndexUrl: "../searchindex.js",
+        tutorialsIndexUrl: "../_static/json/tutorialsSearchIndex.json"
+      });
+    });
+  </script></div>
 
           
         </div>
