@@ -253,8 +253,6 @@ if ~isempty(results) && ~silentCheck
 end
 
 
-
-    
 if simpleCheck
     if isempty(fieldnames(results))
         results = true;

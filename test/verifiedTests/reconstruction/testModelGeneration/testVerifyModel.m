@@ -45,6 +45,18 @@ assert(~(isfield(resNested,'Errors') && isfield(resNested.Errors,'propertiesNotM
     'verifyModel false-flagged a validly nested-cell subSystems field.');
 assert(isequal(modelNested.subSystems, subSystemsBefore), 'verifyModel mutated model.subSystems.');
 
+% test that an empty-double entry ('subSystems(i) = {[]}', as used by e.g.
+% testConvertOldStyleModel.m to mark a reaction with no subsystem) is
+% tolerated like '' and {}, not reported as malformed (FR-006)
+modelEmptyDouble = model;
+modelEmptyDouble.subSystems(10) = {[]};
+subSystemsBefore = modelEmptyDouble.subSystems;
+resEmptyDouble = verifyModel(modelEmptyDouble,'silentCheck',true);
+assert(~(isfield(resEmptyDouble,'Errors') && isfield(resEmptyDouble.Errors,'propertiesNotMatched') && ...
+    isfield(resEmptyDouble.Errors.propertiesNotMatched,'subSystems')), ...
+    'verifyModel false-flagged an empty-double ([]) subSystems entry.');
+assert(isequal(modelEmptyDouble.subSystems, subSystemsBefore), 'verifyModel mutated model.subSystems.');
+
 % test that a valid rxn2subSystem/subSystemNames pair reports no error (FR-005)
 modelMat = model;
 [~, modelMat.rxn2subSystem, modelMat.subSystemNames] = buildRxn2subSystem(model, false);
