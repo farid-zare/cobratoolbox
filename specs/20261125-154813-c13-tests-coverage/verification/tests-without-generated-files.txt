@@ -1,0 +1,10 @@
+RESULT: testConvertCarbonInput passed success
+RESULT: testErrorComputation2 passed success
+RESULT: testErrorComputation2_grad passed success
+RESULT: testGradtest passed success
+RESULT: testSlvrCumomer passed success
+RESULT: testSlvrCumomer_fast passed success
+RESULT: testSlvrEMU passed success
+RESULT: testSlvrEMU_fast passed success
+PATH-ADDED: 0, of which under tempdir: 0
+PATH-REMOVED: 0

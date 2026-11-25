@@ -1,0 +1,3 @@
+TEST-PASSED: testSlvrEMU_fast
+MOCOV-OK: coverage.xml written (6613532 bytes)
+lines-covered="1056" lines-valid="140939"

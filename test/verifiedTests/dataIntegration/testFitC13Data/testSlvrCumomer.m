@@ -17,6 +17,10 @@
 %           agree with the elementary metabolite unit (EMU) solver slvrEMU_fast generated from the
 %           same model: the two solvers use different algorithms (cumomers of whole molecules
 %           against EMUs of fragments), so their agreement is an independent check of the values.
+%     - The generated solver files run from a temporary copy outside src: the test moves them
+%       out of the folder of src where generateIsotopomerSolver writes them, and removes them
+%       at the end. CI coverage measures the toolbox source in src only, so these generated
+%       files, which are not toolbox source, are not counted there.
 %
 % Function under test:
 %     src/dataIntegration/fluxomics/c13solver/slvrCumomer.m
@@ -39,6 +43,8 @@
 % Authors:
 %     - Generated for feature 20261113-142115-test-backfill-tiers, 2026-11-15.
 %     - Generates the solver files it tests itself, as the CI run has none (T035), 2026-11-20.
+%     - Runs the generated solver files from a temporary folder outside src, so that the CI
+%       coverage step does not stop (feature 20261125-154813-c13-tests-coverage), 2026-11-25.
 
 % save the current path
 currentDir = pwd;
@@ -77,6 +83,16 @@ c13Fixtures.expdata = getfield(load('expdata.mat', 'expdata'), 'expdata');
 % testFitC13Data does
 generateIsotopomerSolver(c13Fixtures.model, 'xglcDe', c13Fixtures.expdata, true);
 clear c13Fixtures
+% generateIsotopomerSolver writes the files into its own folder of src; move them to a temporary
+% folder placed on the path and run them from there. CI measures the coverage of src with
+% MOcov, which stops when a file it saw run under src is gone at the end; files outside src
+% are not measured
+c13Generated = tempname;
+mkdir(c13Generated);
+for k = 1:numel(c13Files)
+    movefile(fullfile(c13Dir, c13Files{k}), c13Generated);
+end
+addpath(c13Generated);
 % make MATLAB read the new files, not versions of them it may hold in memory
 rehash;
 clear convertCarbonInput slvrCumomer slvrCumomer_fast slvrEMU slvrEMU_fast
@@ -156,13 +172,11 @@ for k = 1:numel(newGlobals)
     clearvars('-global', newGlobals{k});
 end
 
-% put back the solver files present before the test and remove the ones it generated
-for k = 1:numel(c13Files)
-    if c13Existed(k)
-        copyfile(fullfile(c13Backup, c13Files{k}), c13Dir);
-    elseif exist(fullfile(c13Dir, c13Files{k}), 'file') == 2
-        delete(fullfile(c13Dir, c13Files{k}));
-    end
+% remove the generated files, and put back the solver files present in src before the test
+rmpath(c13Generated);
+rmdir(c13Generated, 's');
+for k = find(c13Existed)'
+    copyfile(fullfile(c13Backup, c13Files{k}), c13Dir);
 end
 rmdir(c13Backup, 's');
 rehash;
